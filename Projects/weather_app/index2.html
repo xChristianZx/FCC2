@@ -1,0 +1,51 @@
+ <!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Today's Forecast</title>
+
+    <link rel="stylesheet" href="css/weather-icons.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+
+  </head>
+
+  <body>
+
+    <div class="main-box">
+      <!-- City -->
+      <h4>Today's forecast for:</h4>
+      <p>
+        <span id="city"></span>
+      </p>
+
+      <!-- Temp -->
+      <p class = "templine">
+        <span id="temp"></span>
+      </p>
+
+      <!-- Button -->
+      <!--
+      <button id = "toggle-btn" class="btn" type="button" name="button">C/F</button>
+    -->
+
+      <!-- Icon -->
+      <p id= "weather-icon">
+      </p>
+
+      <!--Forecast -->
+      <p>
+        <span id ="desc"></span>
+      </p>
+
+    </div>
+
+      <!-- Scripts -->
+      <script src="weather_app2.js"></script>
+  </body>
+</html>

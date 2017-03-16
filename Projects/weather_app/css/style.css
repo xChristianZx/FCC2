@@ -1,0 +1,48 @@
+/*
+  weather_app2 style sheet
+******************************************
+  */
+
+body {
+  background-color: #00487C;
+}
+
+a {
+  color: white;
+}
+
+p {
+  font-size: 24px;
+}
+
+button{
+  background-color: #418FD8;
+}
+
+.main-box {
+  background-color: #418FD8;
+  border-radius: 10px;
+  box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.4);
+  color: white;
+  margin: 0 auto;
+  margin-top: 100px;
+  padding: 10px 0;
+  text-align: center;
+  width: 25%;
+}
+
+#weather-icon {
+  font-size: 60px;
+}
+
+/*
+Color for a few icons
+*/
+
+.wi-day-sunny {
+  color: #F7F019;
+}
+
+.wi-fog, .wi-cloudy {
+  color: #999999;
+}

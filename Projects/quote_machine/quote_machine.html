@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Killer Quotes</title>
+
+    <link rel="stylesheet" href="quote_machine_style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Pangolin">
+  </head>
+
+  <body>
+    <div id="content-wrapper">
+
+  <!--QuoteBox -->
+      <div class="container">
+        <div class="quotebox">
+          <div id="author-row">
+            <p>The great <span id="author-box">Author name</span> once said...</p>
+          </div>
+
+          <p id="quotescreen">And now, a word from our sponsors...</p>
+
+        </div>
+
+  <!--Buttons-->
+        <div class="container button-box">
+          <ul>
+              <li>
+                  <a class="btn btn-primary twitter-share-button tweet-container" title="Tweet me!" id="tweetit" data-size="large">
+                    <i class="fa fa-twitter-square fa-3x fa-inverse" aria-hidden="true"></i>
+                  </a>
+              </li><!--
+            --><li>
+                  <a class="btn btn-primary quote-button" type="button" title ="Click me!"  onclick= "myQuote(), myAuthor()">
+                    <i class="fa fa-arrow-circle-o-right fa-3x fa-inverse" aria-hidden="true"></i>
+                  </a>
+              </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  <!-- Scripts -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+      <script src="quote_machine.js"></script>
+
+  </body>
+</html>

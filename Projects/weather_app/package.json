@@ -1,0 +1,24 @@
+{
+  "name": "weather_app2",
+  "version": "1.0.0",
+  "description": "weather app",
+  "main": "weather_app2.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xChristianZx/FCC.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xChristianZx/FCC/issues"
+  },
+  "homepage": "https://github.com/xChristianZx/FCC#readme",
+  "dependencies": {
+    "axios": "^0.15.3",
+    "jquery": "^3.1.1",
+    "weather-icons": "^1.3.2"
+  }
+}
