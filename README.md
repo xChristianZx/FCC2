@@ -1,4 +1,4 @@
-#FCC2
+FCC2
 ===
 
 Repo for all things FreeCodeCamp
