@@ -61,19 +61,20 @@ body {
   text-shadow: 0 1px 3px rgba(0,0,0,.5);
 }
 
+/*
 #bg {
   position: fixed;
   top: 0;
   left: 0;
 
-  /* Preserve aspet ratio */
+  /* Preserve aspet ratio *
+
   min-width: 100%;
   min-height: 100%;
 }
+*/
 
 #content-wrapper {
-  background-color: grey;
-  z-index: 1 !important;
   padding-top: 100px;
   padding-bottom: 50px;
 
@@ -81,10 +82,6 @@ body {
 
 #quotescreen {
   height: 150px;
-}
-
-#author-box {
-
 }
 
 #author-row {
