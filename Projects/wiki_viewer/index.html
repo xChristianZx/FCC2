@@ -6,17 +6,32 @@
 
     <title>wikiviewer</title>
 
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/master.css">
   </head>
 
   <body>
 
     <div class="container main-box">
+      <form class="" action="index.html" method="post">
+        <div class="form-group">
+          <label for="">Search Form</label>
+          <div class="input-group">
+            <input type="text" name="search" class="form-control" placeholder="Search">
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="button" name="search">Go!</button>
+            </span>
+          </div>
+        </div>
+      </form>
 
-      <a href="https://en.wikipedia.org/wiki/Special:Random" target="_blank" title="Feeling Lucky?">Learn something new!</a>
+      <div class="random-search">
+      <!-- Search Button -->
+        <!-- <a class="btn" href="#" title="To the WIKI!">Look it up</a> -->
 
+      <!-- Random wiki search -->
+        <a class="btn" href="https://en.wikipedia.org/wiki/Special:Random" target="_blank" title="Feeling Lucky?">I live dangerously!</a>
+      </div>
     </div>
 
     <script src="app.js"></script>

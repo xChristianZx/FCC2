@@ -41,3 +41,34 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+
+/*
+  Styliing
+  ==================
+*/
+
+html, body {
+background-color: #31493C !important;
+}
+
+a {
+  color: #001A23 !important;
+  font-size: 16px !important;
+}
+
+label {
+  color: #B3EFB2;
+}
+
+.main-box {
+  background-color: #B3EFB2 !important;
+  margin: 0 auto;
+  margin-top: 100px;
+  text-align: center;
+  width: 50%;
+}
+
+.form-group {
+  margin: 0 auto;
+  width: 50%;
+}
