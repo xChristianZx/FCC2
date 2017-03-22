@@ -6,11 +6,10 @@ An interesting set of problems have occurred along the way, including trying to 
 
 and then trying to use NPM to import the weather-icons package as well as starting to jump into node.js
 
-Luckily it is starting to come together and hopefully be done/ functional soon
-
-
 NOTES:
 
-utilizing openweathermap API, but other options are Dark Sky
+utilizing openweathermap API, but other considerations were Dark Sky and Weather Underground.
 
 weather-icons provided by Erik Flowers - https://erikflowers.github.io/weather-icons/
+
+Photo Credits - Me
