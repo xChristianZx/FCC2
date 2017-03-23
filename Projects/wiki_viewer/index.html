@@ -6,31 +6,38 @@
 
     <title>wikiviewer</title>
 
-    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style/style.css">
   </head>
 
   <body>
 
     <div class="container main-box">
+      <header>
+        <h1>Wikiviewer</h1>
+        <h4>Down the rabbit hole we go...</h4>
+      </header>
+
       <form class="" action="index.html" method="post">
         <div class="form-group">
           <label for="">Search Form</label>
+
           <div class="input-group">
+            <!--Input Form -->
             <input type="text" name="search" class="form-control" placeholder="Search">
+            <!--Search Button -->
             <span class="input-group-btn">
               <button class="btn btn-default" type="button" name="search">Go!</button>
             </span>
           </div>
+
         </div>
       </form>
 
       <div class="random-search">
-      <!-- Search Button -->
-        <!-- <a class="btn" href="#" title="To the WIKI!">Look it up</a> -->
-
       <!-- Random wiki search -->
-        <a class="btn" href="https://en.wikipedia.org/wiki/Special:Random" target="_blank" title="Feeling Lucky?">I live dangerously!</a>
+        <a class="btn btn-default btn-xs" href="https://en.wikipedia.org/wiki/Special:Random" target="_blank" title="Feeling Lucky?">I live dangerously!</a>
       </div>
     </div>
 
