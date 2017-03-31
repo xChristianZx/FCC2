@@ -9,29 +9,34 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="style/style.css">
+
+    <!-- Loading axios via interwebs since it won't work on npm-->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
   </head>
 
   <body>
 
     <div class="container main-box">
+
       <header>
         <h1>Wikiviewer</h1>
         <h4>Down the rabbit hole we go...</h4>
       </header>
 
-      <form class="" action="index.html" method="post">
+      <form class="" action="https://www.wikipedia.org/" method="get">
         <div class="form-group">
           <label for="">Search Form</label>
 
           <div class="input-group">
             <!--Input Form -->
-            <input type="text" name="search" class="form-control" placeholder="Search">
+            <input type="text" name="search" class="form-control" placeholder="Search" value="">
             <!--Search Button -->
             <span class="input-group-btn">
               <button class="btn btn-default" type="button" name="search">Go!</button>
             </span>
-          </div>
 
+          </div>
         </div>
       </form>
 
@@ -41,6 +46,15 @@
       </div>
     </div>
 
+    <section class="search-results">
+      <p class="search">
+      </p>
+    </section>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
     <script src="app.js"></script>
 
   </body>

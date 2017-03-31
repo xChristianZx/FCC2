@@ -32,3 +32,11 @@ label {
   margin: 0 auto;
   width: 50%;
 }
+
+.search-results {
+  background-color: white;
+  margin: 0 auto;
+  padding-top: 25px;
+  text-align: center;
+  width: 50%;
+}

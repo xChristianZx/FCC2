@@ -16,6 +16,17 @@ $(document).ready(function(){
       var state = json.region;
 
       var apiCall = "http://api.openweathermap.org/data/2.5/weather?lat=" + currentLat + "&lon=" + currentLong + "&units=imperial" + "&APPID=be12c9cede78dacab40103d7c20d67fb";
+/*
+// fetch() testing
+      fetch(apiCall)
+      .then((response)=> {
+        console.log();
+        console.log("Fetch Status: ", response.status);
+        response.json().then((data) => {console.log('fetch: ',data.name);})
+
+      })
+      .catch(err => {console.log(err);});
+*/
   //API Call to Openweathermap
       axios.get(apiCall)
         .then(function (response) {
