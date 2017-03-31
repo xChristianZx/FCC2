@@ -6,19 +6,24 @@
 // instead of a browser method
 //var axios = require('axios');
 
+//Random User test API
 const root = "https://randomuser.me/api/";
 
-const wiki = "https://en.wikipedia.org/wiki/"
+//using query
+const wiki = "https://en.wikipedia.org/w/api.php?action=query&prop=revisions&rvprop=content&format=json";
+
+//Using opensearch
+const wikiTwo = `https://en.wikipedia.org/w/api.php?action=opensearch&search=apple&format=json&origin=*`;
 
 //var searchResults = document.querySelector('.search-results');
 
-fetch(root)
+fetch(wikiTwo)
   .then(function (response){
     //console.log(response);
     //console.log(response.json());
     response.json().then((data) => {
       console.log('Fetch data: ', data);
-      console.log('More data: ', data.results[0]);
+      console.log('More data: ', data[1]);
       renderHTML(data);
     });
   })
@@ -27,21 +32,20 @@ fetch(root)
   });
 
 function renderHTML(response) {
-  $('.search').html(response.results[0]);
+  $('.search-results').html(response[0]);
 }
 
 
-/*
-axios.get(root)
+
+axios.get(wikiTwo)
   .then(function (response) {
     console.log('Axios Success!');
-    console.log(response);
+    console.log('Response: ', response);
 
-    var json = JSON.stringify(response.data.results[0]);
-    console.log(response.data.results[0]);
+    var json = JSON.stringify(response.data);
+    console.log(response.data);
     console.log("json:", json);
   })
   .catch(function(err){
     console.log(err);
   });
-*/
