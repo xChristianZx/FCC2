@@ -26,28 +26,28 @@
 
       <form>
         <div class="form-group">
-          <label for="">Search Form</label>
 
           <div class="input-group">
+
             <!--Input Form -->
-            <input type="search" name="search" class="form-control" placeholder="Search" value="">
+            <input id="search-form" class="form-control"type="search" name="search"  placeholder="Search">
             <!--Search Button -->
             <span class="input-group-btn">
-              <button class="btn btn-default" type="button" name="search">Go!</button>
+              <button id="search-button" class="btn btn-default" type="button" name="search">Go!</button>
             </span>
 
           </div>
         </div>
       </form>
 
+<!-- Random wiki search -->
       <div class="random-search">
-      <!-- Random wiki search -->
         <a class="btn btn-default btn-xs" href="https://en.wikipedia.org/wiki/Special:Random" target="_blank" title="Feeling Lucky?">I live dangerously!</a>
       </div>
     </div>
 
-    <section class="search-results">
-      <ul>
+    <section class="container search-results">
+      <ul class="results-list">
 
       </ul>
     </section>
