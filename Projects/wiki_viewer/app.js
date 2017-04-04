@@ -1,5 +1,3 @@
-// 1. Can search Wikipedia entries in a search box and see a list of results
-// 2. Can click a button to see a random wikipedia entry
 
 $(document).ready(function(){
 
@@ -30,13 +28,6 @@ $(document).ready(function(){
       }
     }
 
-    function renderHTMLAxios(response) {
-      $('.results-list').html('');
-      for (var i = 0; i < response.data[1].length; i++){
-        $('.results-list').append('<div><a href="' + response.data[3][i] + '" target = "_blank"><li><h5>' + response.data[1][i] + '</h5><p>' + response.data[2][i] + '</p></li></a></div>');
-      }
-    }
-
     fetch(wikiTwo)
       .then(function (response){
         console.log(response);
@@ -44,32 +35,22 @@ $(document).ready(function(){
           console.log('Fetch data: ', data);
           console.log('Fetch More data: ', data[1]);
           renderHTML(data);
-        })
+        });
       })
       .catch(function (err) {
         console.error('error: ', err);
       });
-
+/*
     axios.get(wikiTwo)
       .then(function (response) {
         console.log('Axios Success!');
         console.log('Axios Response: ', response);
-
-        //json.forEach(function(e){console.log(e);})
         console.log(response.data);
-
-        //console.log("AXIOS JSON:", json);
-        console.log(response.data[0]);
-        console.log(response.data[1][0]);
-        console.log(response.data[2][0]);
-        console.log(response.data[3][0]);
-        renderHTMLAxios(response);
+        renderHTML(response.data);
       })
-      //.then(function(){console.log('TESTING:', json);})
       .catch(function(err){
         console.log('Axios Error: ', err);
       });
-
+*/
   }
-
 });

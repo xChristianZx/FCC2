@@ -15,3 +15,12 @@ Notes for self - (Things I have learned)
 - cannot run 'require' method as it is a server-side node/ common js method as opposed to a browser method
 
 - event.preventDefault() - prevents the default action of the element.  See http://api.jquery.com/event.preventDefault/
+
+- fetch() - it's like axios.....
+
+To Do
+======
+
+- CSS styling/ transitions
+
+- get query API working

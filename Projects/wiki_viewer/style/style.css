@@ -2,23 +2,28 @@
   Styliing
   ==================
 */
-/* green: #31493C */
 
 html, body {
   background-color: #F5F3F5;
 }
 
-header {
+h1 {
   color: #F5F3F5;
+}
+
+h4 {
+  color: rgba(246, 244, 246, 0.5);
+  font-size: 14px;
+}
+
+h5 {
+  border-bottom: 1px solid rgba(167, 169, 175, 0.25);
+  padding-bottom: 5px;
 }
 
 a {
   color: #001A23;
   font-size: 16px;
-}
-
-label {
-  color: #B3EFB2;
 }
 
 .main-box {
@@ -50,7 +55,7 @@ label {
 .results-list div li, .results-list li {
   background-color: white;
   margin-bottom: 20px;
-  padding: 5px;
+  padding: 10px;
 }
 .random-search{
   padding: 10px;
