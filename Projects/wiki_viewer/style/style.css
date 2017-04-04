@@ -2,13 +2,14 @@
   Styliing
   ==================
 */
+/* green: #31493C */
 
 html, body {
-  background-color: #31493C;
+  background-color: #F5F3F5;
 }
 
-h1 {
-  color: #001A23;
+header {
+  color: #F5F3F5;
 }
 
 a {
@@ -21,7 +22,9 @@ label {
 }
 
 .main-box {
-  background-color: #B3EFB2;
+  background-color: #576CA8; /*#B3EFB2*/
+  border-radius: 20px;
+  box-shadow: 5px 5px 3px #1B264F;
   margin: 0 auto;
   margin-top: 100px;
   margin-bottom: 10px;
@@ -35,7 +38,7 @@ label {
 }
 
 .search-results {
-  background-color: #31493C;
+  background-color: #F5F3F5;
   margin: 0 auto;
   padding-top: 20px;
   text-align: left;
