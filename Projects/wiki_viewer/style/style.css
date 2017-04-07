@@ -25,9 +25,18 @@ a {
   color: #001A23;
   font-size: 16px;
 }
+form{
+  margin: 25px;
+}
+footer {
+  color: rgba(167, 169, 175, 0.25);
+  bottom: -80px;
+  position: relative;
+  text-align: center;
+}
 
 .main-box {
-  background-color: #576CA8; /*#B3EFB2*/
+  background-color: #576CA8;
   border-radius: 20px;
   box-shadow: 5px 5px 3px #1B264F;
   margin: 0 auto;
@@ -37,9 +46,28 @@ a {
   width: 50%;
 }
 
+.fa {
+  color: #8E8B89;
+}
+
+/**** Random search icon ******/
+#random-btn:hover {
+  animation: roll 2s infinite;
+  transform: rotate(360deg);
+}
+
+@keyframes roll {
+  0% {
+    transform: rotate(0);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}
+
 .form-group {
   margin: 0 auto;
-  width: 50%;
+  width: 65%;
 }
 
 .search-results {
