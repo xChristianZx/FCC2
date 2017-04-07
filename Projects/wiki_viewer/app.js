@@ -16,7 +16,7 @@ $(document).ready(function(){
     var searchItem = $('#search-form').val();
 
     //using query
-    const wiki = "https://en.wikipedia.org/w/api.php?action=query&prop=revisions&rvprop=content&format=json";
+    const wiki = 'https://en.wikipedia.org/w/api.php?action=query&prop=revisions&rvprop=content&format=json&titles='+ searchItem;
 
     //Using opensearch
     const wikiTwo = 'https://en.wikipedia.org/w/api.php?action=opensearch&search=' + searchItem + '&format=json&origin=*';

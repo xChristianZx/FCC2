@@ -21,6 +21,6 @@ Notes for self - (Things I have learned)
 To Do
 ======
 
-- CSS styling/ transitions
+- CSS styling/ transitions / background image (diagonal)
 
 - get query API working
