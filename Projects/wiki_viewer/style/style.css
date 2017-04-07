@@ -25,9 +25,11 @@ a {
   color: #001A23;
   font-size: 16px;
 }
+
 form{
   margin: 25px;
 }
+
 footer {
   color: rgba(167, 169, 175, 0.25);
   bottom: -80px;
@@ -65,11 +67,13 @@ footer {
   }
 }
 
+/*Search field input*/
 .form-group {
   margin: 0 auto;
   width: 65%;
 }
 
+/*Search Results*/
 .search-results {
   background-color: #F5F3F5;
   margin: 0 auto;
