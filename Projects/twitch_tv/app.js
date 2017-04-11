@@ -8,6 +8,33 @@
 
 $(document).ready(function () {
   
+  let twitch = 'https://api.twitch.tv/kraken'
+  let url = 'https://wind-bow.gomix.me/twitch-api';
+  let targetUrl = '/streams/freecodecamp';
+  let user = '/users/valkia'
+  
+  let test = url + user;
 
+    axios.get(test)
+    .then(function(response){
+        console.log(response);
+        console.log('Stream: ', response.data.stream)
+        streamCheck(response);
+    })
+    .catch(function (err){
+        console.log('Error: ', err);
+    });
+
+    function streamCheck (resp) { 
+        if (resp.data.stream == null){
+            console.log('Live stream is not on');
+        } else if (resp.data.stream == undefined){
+            console.log('Streaming');
+        } else {
+            console.log('Hmmmmm');
+        }
+
+        
+     };
 
 });

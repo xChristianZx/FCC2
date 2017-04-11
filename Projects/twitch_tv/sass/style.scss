@@ -1,25 +1,37 @@
+$white:#F3F8F2;
+$alabaster: #EBE9E9;
+$blue: #3581b8;
+$tangelo: #fcb07e;
+$gainsboro: #DEE2D6;
+
+@mixin border-shadow { 
+    border: 5px $white solid;
+    box-shadow: 5px 5px 3px $gainsboro;
+    border-radius: 5px;
+}
+
 html, body{
+    background-color: $alabaster;
     height: 100%;
 }
 
 body {
-    align-items: center;
     display: flex;
-    margin: 0;
 }
 .container-1 {
     align-items: center;
-    border: 1px grey solid;
+   @include border-shadow;
     display: flex;
     flex-basis: 50%;
     flex-flow: row wrap;
-    justify-content: center;
+    justify-content: space-around;
     margin: auto;
     padding: 20px;
     
 }
 
 .container-1 div {
-    border: 1px grey solid;
+    @include border-shadow;
+    color: $blue;
     padding: 10px;
 }

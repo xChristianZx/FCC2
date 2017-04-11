@@ -1,23 +1,27 @@
 html, body {
+  background-color: #EBE9E9;
   height: 100%; }
 
 body {
-  align-items: center;
-  display: flex;
-  margin: 0; }
+  display: flex; }
 
 .container-1 {
   align-items: center;
-  border: 1px grey solid;
+  border: 5px #F3F8F2 solid;
+  box-shadow: 5px 5px 3px #DEE2D6;
+  border-radius: 5px;
   display: flex;
   flex-basis: 50%;
   flex-flow: row wrap;
-  justify-content: center;
+  justify-content: space-around;
   margin: auto;
   padding: 20px; }
 
 .container-1 div {
-  border: 1px grey solid;
+  border: 5px #F3F8F2 solid;
+  box-shadow: 5px 5px 3px #DEE2D6;
+  border-radius: 5px;
+  color: #3581b8;
   padding: 10px; }
 
 /*# sourceMappingURL=style.css.map */
