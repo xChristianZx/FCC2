@@ -1,0 +1,25 @@
+html, body{
+    height: 100%;
+}
+
+body {
+    align-items: center;
+    display: flex;
+    margin: 0;
+}
+.container-1 {
+    align-items: center;
+    border: 1px grey solid;
+    display: flex;
+    flex-basis: 50%;
+    flex-flow: row wrap;
+    justify-content: center;
+    margin: auto;
+    padding: 20px;
+    
+}
+
+.container-1 div {
+    border: 1px grey solid;
+    padding: 10px;
+}
