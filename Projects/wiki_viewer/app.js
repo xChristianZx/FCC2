@@ -29,14 +29,12 @@ $(document).ready(function(){
     }
 
     fetch(wikiTwo)
-      .then(function (response){
-        console.log(response);
-        response.json().then((data) => {
-          console.log('Fetch data: ', data);
-          console.log('Fetch More data: ', data[1]);
-          renderHTML(data);
-        });
-      })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Fetch data: ', data); 
+        console.log('Fetch More data: ', data[1]);
+        renderHTML(data);
+    })
       .catch(function (err) {
         console.error('error: ', err);
       });
