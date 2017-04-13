@@ -7,22 +7,26 @@
 // User Story: I will see a placeholder notification if a streamer has closed their Twitch account (or the account never existed). You can verify this works by adding brunofin and comster404 to your array of Twitch streamers.
 
 $(document).ready(function () {
-
+    const streamNames = ['freecodecamp', 'chewiemelodies', ]
+    
     let twitch = 'https://api.twitch.tv/kraken';
     let url = 'https://wind-bow.gomix.me/twitch-api';
     let free = '/streams/freecodecamp';
-    let user = '/users/valkia';
-    let user2 = '/users/ESL_SC2';
+    let user = '/users/shacknews';
+    let user2 = '/users/chewiemelodies';
+
+    var root = 'https://jsonplaceholder.typicode.com/posts';
 
     let test = url + user2;
 
     axios.get(test)
         .then(function (response) {
             console.log(response);
-            console.log('Stream: ', response.data.stream);
-            console.log('Name: ', response.data.display_name);
-            console.log('Link: ', response.data._links.self);
             streamCheck(response);
+            console.log('Stream: ', response.data.stream);
+            console.log('Name: ', response.data.name);
+            renderHTML(response);
+            
         })
         .catch(function (err) {
             console.log('Error: ', err);
@@ -32,14 +36,24 @@ $(document).ready(function () {
         if (resp.data.stream === null) {
             console.log('Not currently streaming');
         } else if (!resp.data.stream) {
-            console.log('Streaming');
+            console.log('Currently Streaming');
         } else {
             console.log('Hmmmmm');
         }
     };
 
     function renderHTML(response) {
-        $('.box-1').append()
+        $('.container-1').append(`<li><iframe 
+            src="http://player.twitch.tv/?channel=${response.data.name}"
+            height="275";
+            width="275";               
+            frameborder="0"
+            scrolling="no"
+            allowfullscreen="true"
+            >
+            </iframe>
+            <h3>${response.data.display_name}</h3>
+            <p>${response.data.bio}</p></li>`)
     }
 
 });
