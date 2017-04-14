@@ -7,42 +7,42 @@
 // User Story: I will see a placeholder notification if a streamer has closed their Twitch account (or the account never existed). You can verify this works by adding brunofin and comster404 to your array of Twitch streamers.
 
 $(document).ready(function () {
-    const streamNames = ['freecodecamp', 'chewiemelodies', ]
+    const streamNames = ['freecodecamp', 'chewiemelodies', 'angry_iceberg']
     
     let twitch = 'https://api.twitch.tv/kraken';
     let url = 'https://wind-bow.gomix.me/twitch-api';
-    let free = '/streams/freecodecamp';
-    let user = '/users/shacknews';
-    let user2 = '/users/chewiemelodies';
+    let users = '/users/';
 
-    var root = 'https://jsonplaceholder.typicode.com/posts';
-
-    let test = url + user2;
-
-    axios.get(test)
+streamNames.forEach(function(element){
+    
+    let test = url + users;
+    
+    axios.get(test + element)
         .then(function (response) {
             console.log(response);
             streamCheck(response);
-            console.log('Stream: ', response.data.stream);
             console.log('Name: ', response.data.name);
-            renderHTML(response);
-            
+            console.log('Stream: ', response.data.stream);
+            //renderOnlineHTML(response);     
         })
         .catch(function (err) {
             console.log('Error: ', err);
         });
+});
 
     function streamCheck(resp) {
         if (resp.data.stream === null) {
             console.log('Not currently streaming');
+            renderOfflineHTML(resp)
         } else if (!resp.data.stream) {
             console.log('Currently Streaming');
+            renderOnlineHTML(resp);
         } else {
             console.log('Hmmmmm');
         }
     };
 
-    function renderHTML(response) {
+    function renderOnlineHTML(response) {
         $('.container-1').append(`<li><iframe 
             src="http://player.twitch.tv/?channel=${response.data.name}"
             height="275";
@@ -56,4 +56,7 @@ $(document).ready(function () {
             <p>${response.data.bio}</p></li>`)
     }
 
+    function renderOfflineHTML(response) { 
+        $('.container-2').append(`<li><h3>Currently offline</h3></li>`);
+     }
 });

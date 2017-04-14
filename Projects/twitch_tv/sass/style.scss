@@ -39,9 +39,21 @@ body {
 
 .container-1 li {
     @include border-shadow;
+    display: flex;
+    flex-direction: column;
     color: $blue;
     padding: 10px;
-    height: 400px;
+    height: 500px;
+}
+.container-1 li iframe {
+    flex-basis: 1; 
+}
+
+.container-1 li h3 {
+    flex-basis: 1;
+}
+.container-1 li p {
+    flex-basis: 3;
 }
 
 .box-1 {
@@ -50,7 +62,7 @@ body {
 }
 
 .box-1 iframe {
-    flex-basis: 2; 
+    flex-basis: 1; 
 }
 
 .box-1 p {
