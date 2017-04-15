@@ -6,18 +6,25 @@
 
 // User Story: I will see a placeholder notification if a streamer has closed their Twitch account (or the account never existed). You can verify this works by adding brunofin and comster404 to your array of Twitch streamers.
 
+// Client-ID: oslderf93dxe8ku8pzit1b6u4ryngh
+
 $(document).ready(function () {
     const streamNames = ['freecodecamp', 'chewiemelodies', 'angry_iceberg']
     
     let twitch = 'https://api.twitch.tv/kraken';
     let url = 'https://wind-bow.gomix.me/twitch-api';
     let users = '/users/';
+    let callback = '?callback=?'
 
 streamNames.forEach(function(element){
     
-    let test = url + users;
+    let test = twitch + users;
     
-    axios.get(test + element)
+    axios.get(test + element, {
+        params: {
+            'client_id': 'oslderf93dxe8ku8pzit1b6u4ryngh'
+        }
+    })
         .then(function (response) {
             console.log(response);
             streamCheck(response);
