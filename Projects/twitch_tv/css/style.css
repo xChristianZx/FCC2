@@ -4,37 +4,43 @@ html, body {
   height: 100%; }
 
 body {
-  display: flex; }
+  display: flex;
+  flex-direction: column; }
 
-.container-1 {
+.container-1, .container-2 {
   border: 3px #CACEC3 solid;
   box-shadow: 3px 3px 1px #F3F9F5;
   border-radius: 5px;
   align-items: center;
   display: grid;
-  grid-template-columns: 300px 300px 300px;
-  grid-template-rows: 500px 500px 500px;
+  grid-template-columns: 350px 350px 350px;
+  grid-template-rows: 500px 400px;
   grid-gap: 10px;
   margin: auto;
   padding: 20px;
   list-style: none; }
 
-.container-1 li {
+.container-1 li, .container-2 li {
   border: 3px #CACEC3 solid;
   box-shadow: 3px 3px 1px #F3F9F5;
   border-radius: 5px;
+  display: flex;
+  flex-direction: column;
   color: #3581b8;
   padding: 10px;
   height: 400px; }
 
-.box-1 {
-  display: flex;
-  flex-direction: column; }
-
-.box-1 iframe {
+.container-1 li iframe {
   flex-basis: 1; }
 
-.box-1 p {
+.container-1 li h3 {
+  flex-basis: 1; }
+
+.container-1 li p {
   flex-basis: 3; }
+
+.container-2 li img {
+  height: 175px;
+  width: 175px; }
 
 /*# sourceMappingURL=style.css.map */
