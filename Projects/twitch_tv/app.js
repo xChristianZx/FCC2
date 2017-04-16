@@ -1,11 +1,11 @@
-// User Story: I can see whether Free Code Camp is currently streaming on Twitch.tv.
-// User Story: I can click the status output and be sent directly to the Free Code Camp's Twitch.tv channel.
-// User Story: if a Twitch user is currently streaming, I can see additional details about what they are streaming.
-// User Story: I will see a placeholder notification if a streamer has closed their Twitch account (or the account never existed). You can verify this works by adding brunofin and comster404 to your array of Twitch streamers.
+// * User Story: I can see whether Free Code Camp is currently streaming on Twitch.tv.
+// * User Story: I can click the status output and be sent directly to the Free Code Camp's Twitch.tv channel.
+// * User Story: if a Twitch user is currently streaming, I can see additional details about what they are streaming.
+// * User Story: I will see a placeholder notification if a streamer has closed their Twitch account (or the account never existed). You can verify this works by adding brunofin and comster404 to your array of Twitch streamers.
 // Client-ID: oslderf93dxe8ku8pzit1b6u4ryngh
 
 $(document).ready(function () {
-    const streamNames = ['freecodecamp', 'chewiemelodies', 'angry_iceberg', 'capcomfighters', 'copenhagengamescs', 'summit1g', 'kinggothalion'];
+    const streamNames = ['freecodecamp', 'chewiemelodies', 'angry_iceberg', 'capcomfighters', 'copenhagengamescs', 'summit1g', 'kinggothalion', 'rocketleague',/*'brunofin'*/];
 
     const twitch = 'https://api.twitch.tv/kraken';
     const url = 'https://wind-bow.gomix.me/twitch-api';
@@ -20,8 +20,8 @@ $(document).ready(function () {
         axios.get(streamsSearch + element, {
                 params: {'client_id': 'oslderf93dxe8ku8pzit1b6u4ryngh'}
             })
-            .then(function (response) {
-                console.log('HELLO!', response, element);
+            .then(function (response) { 
+                console.log(element, response);
                 streamCheck(response, element);
                 console.log('Name: ', response.data.stream.channel.display_name);
                 console.log('Stream: ', response.data.stream);
@@ -70,18 +70,23 @@ $(document).ready(function () {
                 renderOfflineHTML(response)
             })
             .catch(function (err) {
-                console.log(err);
+                console.log(err, element);
+                errorHandler(err, element);
             })
     }
 
     function renderOfflineHTML(response) {
         $('.container-2').append(`<li>
         <a href="https://www.twitch.tv/${response.data.name}" target="_blank">
-            <img src="${response.data.logo} alt="logo">
-        </a>
-        <h2>${response.data.display_name}</h2>
-        <p>is currently offline</p>
+            <img src="${response.data.logo}" alt="logo">
+        <h3>${response.data.display_name}</h3>
         <p>${response.data.bio}</p>
+        </a>
         </li>`);
     }
+    
+    function errorHandler (err,element) {
+        alert(`${err} \nUser ${element} not found`)
+    }
+
 });

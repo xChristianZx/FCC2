@@ -1,46 +1,85 @@
 /******************/
-html, body {
+html,
+body {
   background-color: #EBE9E9;
   height: 100%; }
 
 body {
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  text-align: center;
+  color: #3581b8; }
 
-.container-1, .container-2 {
+.container-1 {
   border: 3px #CACEC3 solid;
   box-shadow: 3px 3px 1px #F3F9F5;
   border-radius: 5px;
   align-items: center;
+  background-color: #CACEC3;
   display: grid;
-  grid-template-columns: 350px 350px 350px;
-  grid-template-rows: 500px 400px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
   grid-gap: 10px;
-  margin: auto;
+  margin: 25px 50px;
   padding: 20px;
   list-style: none; }
 
-.container-1 li, .container-2 li {
-  border: 3px #CACEC3 solid;
-  box-shadow: 3px 3px 1px #F3F9F5;
-  border-radius: 5px;
+.container-1 li {
+  background-color: #F3F9F5;
   display: flex;
   flex-direction: column;
   color: #3581b8;
   padding: 10px;
   height: 400px; }
+  .container-1 li h3 {
+    flex-basis: 1;
+    margin: 10px; }
+  .container-1 li p {
+    flex-basis: 1;
+    margin: 5px; }
+  .container-1 li iframe {
+    flex-basis: 1;
+    align-self: center; }
 
-.container-1 li iframe {
-  flex-basis: 1; }
+.container-2 {
+  border: 3px #CACEC3 solid;
+  box-shadow: 3px 3px 1px #F3F9F5;
+  border-radius: 5px;
+  align-items: center;
+  background-color: #CACEC3;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  grid-gap: 10px;
+  margin: 25px 50px;
+  padding: 20px;
+  list-style: none; }
 
-.container-1 li h3 {
-  flex-basis: 1; }
-
-.container-1 li p {
-  flex-basis: 3; }
-
-.container-2 li img {
-  height: 175px;
-  width: 175px; }
+.container-2 li a {
+  background-color: #F3F9F5;
+  display: flex;
+  flex-flow: row nowrap;
+  color: #3581b8;
+  padding: 15px;
+  height: 125px;
+  justify-content: space-around;
+  text-decoration: none;
+  transition: background-color 0.3s ease; }
+  .container-2 li a:hover {
+    background-color: #DEE2D6; }
+  .container-2 li a h3 {
+    align-self: center;
+    flex: 0 1 30%;
+    margin: auto; }
+  .container-2 li a p {
+    align-self: center;
+    flex: 0 1 40%;
+    margin: auto; }
+  .container-2 li a img {
+    align-self: center;
+    height: 100px;
+    width: 100px;
+    border-radius: 55px;
+    margin: auto; }
 
 /*# sourceMappingURL=style.css.map */

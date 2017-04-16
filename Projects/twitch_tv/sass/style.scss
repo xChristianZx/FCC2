@@ -1,12 +1,10 @@
 // Variables
-
 $white:#F3F9F5;
 $alabaster: #EBE9E9;
 $blue: #3581b8;
-$tangelo: #fcb07e;
+$tangelo: #FCB07E;
 $gainsboro: #DEE2D6;
 $gray: #CACEC3;
-
 @mixin border-shadow {
     border: 3px $gray solid;
     box-shadow: 3px 3px 1px $white;
@@ -16,7 +14,8 @@ $gray: #CACEC3;
 //  Styling
 /******************/
 
-html, body{
+html,
+body {
     background-color: $alabaster;
     height: 100%;
 }
@@ -24,40 +23,90 @@ html, body{
 body {
     display: flex;
     flex-direction: column;
+    text-align: center;
+    color: $blue;
 }
 
-.container-1, .container-2 {
-     @include border-shadow;
+.container-1 {
+    @include border-shadow;
     align-items: center;
+    background-color: $gray;
     display: grid;
-    grid-template-columns: 350px 350px 350px;
-    grid-template-rows: 500px 400px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
     grid-gap: 10px;
-    margin: auto;
+    margin: 25px 50px;
     padding: 20px;
     list-style: none;
 }
 
-.container-1 li, .container-2 li {
-    @include border-shadow;
+.container-1 li {
+    //@include border-shadow;
+    background-color: $white;
     display: flex;
     flex-direction: column;
     color: $blue;
     padding: 10px;
     height: 400px;
-}
-.container-1 li iframe {
-    flex-basis: 1; 
+    h3 {
+        flex-basis: 1;
+        margin: 10px;
+    }
+    p {
+        flex-basis: 1;
+        margin: 5px;
+    }
+    iframe {
+        flex-basis: 1;
+        align-self: center;
+    }
 }
 
-.container-1 li h3 {
-    flex-basis: 1;
-}
-.container-1 li p {
-    flex-basis: 3;
+.container-2 {
+    @include border-shadow;
+    align-items: center;
+    background-color: $gray;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-gap: 10px;
+    margin: 25px 50px;
+    padding: 20px;
+    list-style: none;
+    
 }
 
-.container-2 li img {
-    height: 175px;
-    width: 175px;
+.container-2 li a {
+    background-color: $white;
+    display: flex;
+    flex-flow: row nowrap;
+    color: $blue;
+    padding: 15px;
+    height: 125px;
+    justify-content: space-around;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+
+    &:hover{
+        background-color: $gainsboro;
+    }
+
+    h3 {
+        align-self: center;
+        flex: 0 1 30%;
+        margin: auto;
+    }
+    p {
+        align-self: center;
+        flex: 0 1 40%;
+        margin: auto;
+    }
+
+    img {
+        align-self: center;
+        height: 100px;
+        width: 100px;
+        border-radius: 55px;
+        margin: auto;
+    }
 }
