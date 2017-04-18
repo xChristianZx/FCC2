@@ -52,6 +52,9 @@ p {
   color: #3581b8;
   padding: 10px;
   height: 400px; }
+  .container-1 li div {
+    margin-top: 10px;
+    border-top: 1px solid rgba(53, 129, 184, 0.25); }
   .container-1 li h4 {
     flex-basis: 1;
     margin: 10px; }

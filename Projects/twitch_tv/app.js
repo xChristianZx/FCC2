@@ -5,7 +5,7 @@
 // Client-ID: oslderf93dxe8ku8pzit1b6u4ryngh
 
 $(document).ready(function () {
-    const streamNames = ['freecodecamp', 'chewiemelodies', 'angry_iceberg', 'capcomfighters', 'copenhagengamescs', 'summit1g', 'kinggothalion', 'rocketleague',/*'brunofin'*/];
+    const streamNames = ['kylelong','freecodecamp', 'chewiemelodies', 'angry_iceberg', 'capcomfighters', 'copenhagengamescs', 'summit1g', 'kinggothalion', 'rocketleague',/*'brunofin'*/];
 
     const twitch = 'https://api.twitch.tv/kraken';
     const url = 'https://wind-bow.gomix.me/twitch-api';
@@ -53,9 +53,10 @@ $(document).ready(function () {
             allowfullscreen="true"
             >
             </iframe>
+            <div>
             <h4>${response.data.stream.channel.display_name}</h4>
-            <p>Playing: ${response.data.stream.game}</p>
-            <p>${response.data.stream.channel.status}</p></li>`)
+            <p>Playing: <strong>${response.data.stream.game}</strong></p>
+            <p>${response.data.stream.channel.status}</p></div></li>`)
     }
 
     function offlineInfo(element) {

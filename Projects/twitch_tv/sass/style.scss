@@ -74,6 +74,11 @@ p {     @include droid;}
     color: $blue;
     padding: 10px;
     height: 400px;
+    
+    div {
+        margin-top: 10px;
+        border-top: 1px solid rgba(53, 129, 184, .25);
+    }
     h4 {
         flex-basis: 1;
         margin: 10px;
