@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Audiowide|Droid+Sans+Mono|Press+Start+2P|VT323');
 // Variables
 $white:#F3F9F5;
 $alabaster: #EBE9E9;
@@ -10,9 +11,12 @@ $gray: #CACEC3;
     box-shadow: 3px 3px 1px $white;
     border-radius: 5px;
 }
+@mixin vt323 {font: 1.5em 'VT323', monospace;}
+@mixin droid {font: 12px 'Droid Sans Mono', monospace;}
+@mixin audiowide {font-family: 'Audiowide', cursive;}
+@mixin pressstart {font-family: 'Press Start 2P', cursive;}
 
 //  Styling
-/******************/
 
 html,
 body {
@@ -27,6 +31,28 @@ body {
     color: $blue;
 }
 
+h1 {    
+    @include pressstart;
+    font-size: 2em;
+    margin-bottom: 3px;
+    }
+
+h2 {    
+    @include pressstart;
+    font-size: 14px;
+    margin-top: 0;
+}
+
+h3 {    
+    @include audiowide;
+    font-size: 1.25em;
+    margin: 30px 0 0;
+}
+
+h4 {    @include audiowide;}
+
+p {     @include droid;}
+
 .container-1 {
     @include border-shadow;
     align-items: center;
@@ -35,7 +61,7 @@ body {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: auto;
     grid-gap: 10px;
-    margin: 25px 50px;
+    margin: 10px 50px 25px;
     padding: 20px;
     list-style: none;
 }
@@ -48,7 +74,7 @@ body {
     color: $blue;
     padding: 10px;
     height: 400px;
-    h3 {
+    h4 {
         flex-basis: 1;
         margin: 10px;
     }
@@ -70,7 +96,7 @@ body {
     grid-template-columns: 1fr;
     grid-template-rows: auto;
     grid-gap: 10px;
-    margin: 25px 50px;
+    margin: 10px 50px 20px;
     padding: 20px;
     list-style: none;
     
@@ -90,23 +116,26 @@ body {
     &:hover{
         background-color: $gainsboro;
     }
-
-    h3 {
+    div {
+        margin: auto;
         align-self: center;
         flex: 0 1 30%;
+    }
+    h4 {
+        align-self: center;
         margin: auto;
     }
     p {
         align-self: center;
-        flex: 0 1 40%;
+        flex: 0 1 70%;
         margin: auto;
     }
-
     img {
         align-self: center;
-        height: 100px;
-        width: 100px;
-        border-radius: 55px;
+        height: 80px;
+        width: 80px;
+        border-radius: 50%;
         margin: auto;
+        margin-bottom: 5px;
     }
 }

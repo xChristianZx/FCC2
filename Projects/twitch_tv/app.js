@@ -35,7 +35,6 @@ $(document).ready(function () {
         if (resp.data.stream === null) {
             console.log('Not currently streaming');
             offlineInfo(element)
-            //renderOfflineHTML(resp)
         } else if (resp.data.stream) {
             console.log('Currently Streaming');
             renderOnlineHTML(resp);
@@ -54,7 +53,7 @@ $(document).ready(function () {
             allowfullscreen="true"
             >
             </iframe>
-            <h3>${response.data.stream.channel.display_name}</h3>
+            <h4>${response.data.stream.channel.display_name}</h4>
             <p>Playing: ${response.data.stream.game}</p>
             <p>${response.data.stream.channel.status}</p></li>`)
     }
@@ -78,14 +77,14 @@ $(document).ready(function () {
     function renderOfflineHTML(response) {
         $('.container-2').append(`<li>
         <a href="https://www.twitch.tv/${response.data.name}" target="_blank">
-            <img src="${response.data.logo}" alt="logo">
-        <h3>${response.data.display_name}</h3>
+            <div><img src="${response.data.logo}" alt="logo">
+        <h4>${response.data.display_name}</h4></div>
         <p>${response.data.bio}</p>
         </a>
         </li>`);
     }
     
-    function errorHandler (err,element) {
+    function errorHandler (err, element) {
         alert(`${err} \nUser ${element} not found`)
     }
 
