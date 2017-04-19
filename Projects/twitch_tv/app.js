@@ -44,19 +44,18 @@ $(document).ready(function () {
     };
 
     function renderOnlineHTML(response) {
-        $('.container-1').append(`<li><iframe 
+        $('.container-1').append(`<li><a href="https://www.twitch.tv/${response.data.stream.channel.name}" target="_blank">
+            <iframe 
             src="http://player.twitch.tv/?channel=${response.data.stream.channel.name}&autoplay=false&muted=true"
             height="275";
             width="275";               
             frameborder="0"
             scrolling="no"
             allowfullscreen="true"
-            >
-            </iframe>
-            <div>
+            ></iframe>
             <h4>${response.data.stream.channel.display_name}</h4>
             <p>Playing: <strong>${response.data.stream.game}</strong></p>
-            <p>${response.data.stream.channel.status}</p></div></li>`)
+            <p>${response.data.stream.channel.status}</p></a></li>`)
     }
 
     function offlineInfo(element) {
