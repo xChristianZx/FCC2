@@ -8,25 +8,26 @@ body {
 body {
   display: flex;
   flex-direction: column;
-  text-align: center; }
+  text-align: center;
+  color: #FFFFFF; }
+
+header {
+  margin-top: 30px; }
 
 h1 {
   font-family: 'Press Start 2P', cursive;
   font-size: 2em;
-  margin-bottom: 3px;
-  color: #FFFFFF; }
+  margin-bottom: 3px; }
 
 h2 {
-  font-family: 'Press Start 2P', cursive;
-  font-size: 14px;
-  margin-top: 0;
-  color: #FFFFFF; }
+  font: 1.5em 'VT323', monospace;
+  font-size: 1.2em;
+  margin-top: 0; }
 
 h3 {
   font-family: 'Audiowide', cursive;
   font-size: 1.25em;
-  margin: 30px 0 0;
-  color: #FFFFFF; }
+  margin: 30px 0 0; }
 
 h4 {
   font-family: 'Audiowide', cursive;
@@ -60,17 +61,19 @@ p {
   .container-1 li a:hover {
     background-color: #00BCD4; }
   .container-1 li a h4 {
+    align-self: center;
     border-top: 1px solid #BDBDBD;
     flex-basis: 1;
     margin: 10px;
-    margin-top: 10px;
     padding-top: 10px; }
   .container-1 li a p {
+    align-self: center;
     flex-basis: 1;
     margin: 5px; }
   .container-1 li a iframe {
     flex-basis: 1;
-    align-self: center; }
+    align-self: center;
+    margin: auto; }
 
 .container-2 {
   box-shadow: 3px 3px 1px #512DA8;
@@ -97,22 +100,22 @@ p {
   .container-2 li a:hover {
     background-color: #00BCD4; }
   .container-2 li a div {
-    margin: auto;
     align-self: center;
+    margin: auto;
     flex: 0 1 30%; }
   .container-2 li a h4 {
     align-self: center;
     margin: auto; }
   .container-2 li a p {
     align-self: center;
-    flex: 0 1 70%;
-    margin: auto; }
+    margin: auto;
+    flex: 0 1 70%; }
   .container-2 li a img {
     align-self: center;
+    margin: auto;
     height: 80px;
     width: 80px;
     border-radius: 50%;
-    margin: auto;
     margin-bottom: 5px; }
 
 /*# sourceMappingURL=style.css.map */
