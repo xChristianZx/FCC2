@@ -38,7 +38,7 @@ p {
   color: #757575; }
 
 .container-1 {
-  box-shadow: 3px 3px 1px #512DA8;
+  box-shadow: 3px 3px 5px 6px #512DA8;
   border-radius: 5px;
   align-items: center;
   background-color: #BDBDBD;
@@ -51,15 +51,18 @@ p {
   list-style: none; }
 
 .container-1 li a {
+  box-shadow: 2px 2px 3px 3px #757575;
   background-color: #FFFFFF;
   display: flex;
   flex-direction: column;
   padding: 10px;
   height: 400px;
   text-decoration: none;
-  transition: background-color 0.3s ease; }
+  transition: background-color 0.5s ease;
+  transition: all .2s ease-in-out; }
   .container-1 li a:hover {
-    background-color: #00BCD4; }
+    background-color: #00BCD4;
+    transform: scale(1.02); }
   .container-1 li a h4 {
     align-self: center;
     border-top: 1px solid #BDBDBD;
@@ -76,7 +79,7 @@ p {
     margin: auto; }
 
 .container-2 {
-  box-shadow: 3px 3px 1px #512DA8;
+  box-shadow: 3px 3px 5px 6px #512DA8;
   border-radius: 5px;
   align-items: center;
   background-color: #BDBDBD;
@@ -89,6 +92,7 @@ p {
   list-style: none; }
 
 .container-2 li a {
+  box-shadow: 2px 2px 3px 3px #757575;
   background-color: #FFFFFF;
   display: flex;
   flex-flow: row nowrap;
@@ -96,9 +100,11 @@ p {
   height: 125px;
   justify-content: space-around;
   text-decoration: none;
-  transition: background-color 0.3s ease; }
+  transition: background-color 0.3s ease;
+  transition: transform .2s ease-in-out; }
   .container-2 li a:hover {
-    background-color: #00BCD4; }
+    background-color: #00BCD4;
+    transform: translate(0px, -5px); }
   .container-2 li a div {
     align-self: center;
     margin: auto;
