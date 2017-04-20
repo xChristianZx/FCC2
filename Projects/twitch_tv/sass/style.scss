@@ -37,9 +37,10 @@ $divider-color: #BDBDBD;
 }
 
 //  Styling
-html,
+
 body {
-    background-color: $primary-color;
+    //background-color: $primary-color;
+    background-image: radial-gradient(circle at bottom right, $primary-color 50%, $primary-color-light);
     height: 100%;
 }
 
