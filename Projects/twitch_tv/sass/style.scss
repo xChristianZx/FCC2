@@ -37,10 +37,9 @@ $divider-color: #BDBDBD;
 }
 
 //  Styling
-
 body {
-    //background-color: $primary-color;
-    background-image: radial-gradient(circle at bottom right, $primary-color 50%, $primary-color-light);
+    background-color: $primary-color;
+    background-image: radial-gradient($primary-color-light, $primary-color);
     height: 100%;
 }
 
