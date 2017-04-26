@@ -2,7 +2,7 @@
     height: 250px;
     width: 250px;
     margin: 0;
-    border: 5px solid black;
+    border: 10px solid black;
 }
 
 $blue: rgba(0, 0, 163, 1);
@@ -18,7 +18,7 @@ $yellow-on:rgba(255, 255, 0, 1);
 $border: 3px solid grey;
 
 html {
-    background: rgba(18, 18, 18, .5);
+    background: rgba(18, 18, 18, .2);
     height: 100%;
     width: 100%;
     display: flex;
@@ -30,14 +30,14 @@ html {
 
 .wrapper {
     display: grid;
-    border: 3px solid grey;
+    border: 5px solid black;
     border-radius: 50%;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     align-content: center;
     justify-content: center;
     margin: auto;
-    background: orange;
+    background: black;
     height: auto;
     width: auto;
     grid-column-gap: 0px;
@@ -52,42 +52,42 @@ html {
     grid-row: 1/2;
     &:hover{
         background: $green-on;
-        transform: scale(1.01);
+        transform: scale(0.98);
     }
 }
 
 .box-2 {
     @include color-boxes();
-    background: $blue;
+    background: $red;
     border-top-right-radius: 100%;
     grid-column: 2/3;
     grid-row: 1/2;
     &:hover{
-        background: $blue-on;
-        transform: scale(1.01);
+        background: $red-on;
+        transform: scale(0.98);
     }
 }
 
 .box-3 {
     @include color-boxes();
-    background: $red;
+    background: $yellow;
     border-bottom-left-radius: 100%;
     grid-column: 1/2;
     grid-row: 2/3;
     &:hover{
-        background: $red-on;
-        transform: scale(1.01);
+        background: $yellow-on;
+        transform: scale(0.98);
     }
 }
 
 .box-4 {
     @include color-boxes();
-    background: $yellow;
+    background: $blue;
     border-bottom-right-radius: 100%;
     grid-column: 2/3;
     grid-row: 2/3;
     &:hover{
-        background: $yellow-on;
-        transform: scale(1.01);
+        background: $blue-on;
+        transform: scale(0.98);
     }
 }
