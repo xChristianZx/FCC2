@@ -1,0 +1,93 @@
+@mixin color-boxes {
+    height: 250px;
+    width: 250px;
+    margin: 0;
+    border: 5px solid black;
+}
+
+$blue: rgba(0, 0, 163, 1);
+$green:rgba(0, 59, 0, 1);
+$red:rgba(163, 0, 0, 1);
+$yellow:rgba(163, 163, 0, 1);
+
+$blue-on: rgba(0, 0, 255, 1);
+$green-on:rgba(0, 202, 0, 1);
+$red-on:rgba(255, 0, 0, 1);
+$yellow-on:rgba(255, 255, 0, 1);
+
+$border: 3px solid grey;
+
+html {
+    background: rgba(18, 18, 18, .5);
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+}
+
+.wrapper {
+    display: grid;
+    border: 3px solid grey;
+    border-radius: 50%;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    align-content: center;
+    justify-content: center;
+    margin: auto;
+    background: orange;
+    height: auto;
+    width: auto;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+
+.box-1 {
+    @include color-boxes();
+    background: $green;
+    border-top-left-radius: 100%;
+    grid-column: 1/2;
+    grid-row: 1/2;
+    &:hover{
+        background: $green-on;
+        transform: scale(1.01);
+    }
+}
+
+.box-2 {
+    @include color-boxes();
+    background: $blue;
+    border-top-right-radius: 100%;
+    grid-column: 2/3;
+    grid-row: 1/2;
+    &:hover{
+        background: $blue-on;
+        transform: scale(1.01);
+    }
+}
+
+.box-3 {
+    @include color-boxes();
+    background: $red;
+    border-bottom-left-radius: 100%;
+    grid-column: 1/2;
+    grid-row: 2/3;
+    &:hover{
+        background: $red-on;
+        transform: scale(1.01);
+    }
+}
+
+.box-4 {
+    @include color-boxes();
+    background: $yellow;
+    border-bottom-right-radius: 100%;
+    grid-column: 2/3;
+    grid-row: 2/3;
+    &:hover{
+        background: $yellow-on;
+        transform: scale(1.01);
+    }
+}
