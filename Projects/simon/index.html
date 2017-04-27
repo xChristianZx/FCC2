@@ -9,21 +9,39 @@
     <title>Simon says...</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/6.0.0/normalize.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 
 <body>
 
     <div class="wrapper">
-        <div class="box-1"></div>
-        <div class="box-2"></div>
-        <div class="box-3"></div>
-        <div class="box-4"></div>
+        <div class="box-1 green"></div>
+        <div class="box-2 red"></div>
+        <div class="box-3 yellow"></div>
+        <div class="box-4 blue"></div>
+    </div>
+
+    <div class="control-panel">
+        <h2>SIMON</h2>
+        <input type="checkbox" data-toggle="toggle" data-size="mini">
+    
+        <div class="button-controls">
+            <button class="start btn btn-default btn-xs" type="button">Start</button>
+            <button class="strict btn btn-default btn-xs" type="button">Strict</button>
+        </div>
+
     </div>
 
     <!--Scripts-->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
         crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
     <script src="app.js"></script>
 
 </body>
