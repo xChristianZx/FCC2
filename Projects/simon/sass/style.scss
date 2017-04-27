@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Black+Ops+One|Passion+One');
 @mixin color-boxes {
     height: 250px;
     width: 250px;
@@ -5,19 +6,20 @@
     border: 10px solid black;
 }
 
-$blue: rgba(0, 0, 163, 1);
-$green:rgba(0, 59, 0, 1);
-$red:rgba(163, 0, 0, 1);
-$yellow:rgba(163, 163, 0, 1);
+$blue: rgba(0,0,163,1);
+$green:rgba(0,59,0,1);
+$red:rgba(163,0,0,1);
+$yellow:rgba(163,163,0,1);
 
-$blue-on: rgba(0, 0, 255, 1);
-$green-on:rgba(0, 202, 0, 1);
-$red-on:rgba(255, 0, 0, 1);
+$blue-on: rgba(0,0,255,1);
+$green-on:rgba(0,202,0,1);
+$red-on:rgba(255,0,0,1);
 $yellow-on:rgba(255, 255, 0, 1);
 
 $border: 3px solid grey;
 
-html, body {
+html,
+body {
     background: rgba(18, 18, 18, .2);
     height: 100%;
     width: 100%;
@@ -32,6 +34,7 @@ html, body {
     display: grid;
     border: 5px solid black;
     border-radius: 50%;
+    box-shadow: 0 0 10px 0 black;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     align-content: center;
@@ -51,7 +54,7 @@ html, body {
     border-top-left-radius: 100%;
     grid-column: 1/2;
     grid-row: 1/2;
-    &:hover{
+    &:hover {
         background: $green-on;
         transform: scale(0.98);
     }
@@ -63,7 +66,7 @@ html, body {
     border-top-right-radius: 100%;
     grid-column: 2/3;
     grid-row: 1/2;
-    &:hover{
+    &:hover {
         background: $red-on;
         transform: scale(0.98);
     }
@@ -75,7 +78,7 @@ html, body {
     border-bottom-left-radius: 100%;
     grid-column: 1/2;
     grid-row: 2/3;
-    &:hover{
+    &:hover {
         background: $yellow-on;
         transform: scale(0.98);
     }
@@ -87,13 +90,13 @@ html, body {
     border-bottom-right-radius: 100%;
     grid-column: 2/3;
     grid-row: 2/3;
-    &:hover{
+    &:hover {
         background: $blue-on;
         transform: scale(0.98);
     }
 }
 
-.control-panel{
+.control-panel {
     position: absolute;
     background: black;
     border-radius: 100%;
@@ -105,28 +108,50 @@ html, body {
     align-items: center;
     h2 {
         color: white;
+        font: 36px 'Black Ops One', cursive;
         margin: 5px;
+    }
+    label {
+        color: white;
     }
 }
 
 .button-controls {
-    
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-around;
     align-items: center;
     margin: 10px;
+    button {
+        margin: 10px;
+        border-radius: 50%;
+        height: 20px;
+        width: 20px;
+    }
+    label {
+        color: white;
+    }
 }
 
-.button-controls button {
-    margin: 10px;
+.control-panel .toggle {
+    margin: 3px;
+    .toggle-on {
+        background: rgba(224, 0, 0, 1);
+    }
 }
 
-.toggle{
-    margin: 10px;
-    .toggle-on { background: $red-on; }
-} 
 .btn-default.active {
     background-color: black;
     color: white;
+}
+
+.count {
+    border: 2px solid white;
+    border-radius: 3px;
+    background: black;
+    font: 16px 'Black Ops One', cursive;
+    color: red;
+    width: 45px;
+    height: auto;
+    text-align: center;
 }
