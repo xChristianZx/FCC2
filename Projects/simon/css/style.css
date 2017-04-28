@@ -36,7 +36,7 @@ body {
   border-top-left-radius: 100%;
   grid-column: 1/2;
   grid-row: 1/2; }
-  .green:hover {
+  .green.clicked {
     background: #00ca00;
     transform: scale(0.98); }
 
@@ -49,7 +49,7 @@ body {
   border-top-right-radius: 100%;
   grid-column: 2/3;
   grid-row: 1/2; }
-  .red:hover {
+  .red.clicked {
     background: red;
     transform: scale(0.98); }
 
@@ -62,7 +62,7 @@ body {
   border-bottom-left-radius: 100%;
   grid-column: 1/2;
   grid-row: 2/3; }
-  .yellow:hover {
+  .yellow.clicked {
     background: yellow;
     transform: scale(0.98); }
 
@@ -75,7 +75,7 @@ body {
   border-bottom-right-radius: 100%;
   grid-column: 2/3;
   grid-row: 2/3; }
-  .blue:hover {
+  .blue.clicked {
     background: blue;
     transform: scale(0.98); }
 
