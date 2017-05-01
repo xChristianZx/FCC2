@@ -154,4 +154,7 @@ body {
     width: 45px;
     height: auto;
     text-align: center;
+    &.off{
+        color: rgba(255, 0, 0, .4);
+    }
 }

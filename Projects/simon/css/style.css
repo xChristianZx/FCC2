@@ -128,5 +128,7 @@ body {
   width: 45px;
   height: auto;
   text-align: center; }
+  .count.off {
+    color: rgba(255, 0, 0, 0.4); }
 
 /*# sourceMappingURL=style.css.map */
