@@ -133,16 +133,16 @@ body {
     }
 }
 
+.btn-default.active {
+    background-color: red;
+    color: white;
+}
+
 .control-panel .toggle {
     margin: 3px;
     .toggle-on {
         background: rgba(224, 0, 0, 1);
     }
-}
-
-.btn-default.active {
-    background-color: black;
-    color: white;
 }
 
 .count {

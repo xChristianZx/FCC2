@@ -1,34 +1,40 @@
 "use strict"
 $(document).ready(function () {
     //Audio Import
-    const greenTone = new Audio('https://s3.amazonaws.com/freecodecamp/simonSound1.mp3');
-    const redTone = new Audio('https://s3.amazonaws.com/freecodecamp/simonSound2.mp3');
-    const yellowTone = new Audio('https://s3.amazonaws.com/freecodecamp/simonSound3.mp3');
-    const blueTone = new Audio('https://s3.amazonaws.com/freecodecamp/simonSound4.mp3');
+    const audio = {
+        greenTone: new Audio('https://s3.amazonaws.com/freecodecamp/simonSound1.mp3'),
+        redTone: new Audio('https://s3.amazonaws.com/freecodecamp/simonSound2.mp3'),
+        yellowTone: new Audio('https://s3.amazonaws.com/freecodecamp/simonSound3.mp3'),
+        blueTone: new Audio('https://s3.amazonaws.com/freecodecamp/simonSound4.mp3')
+    }
 
     //Initial variables
     var simonCall = [];
     var userResponse = [];
+
     var randomNum = 1;
     var count = 1;
 
-    const green = {
-        $el: $('.green'),
-        tone: greenTone,
+    var colors = {
+        green: {
+            $el: $('.green'),
+            tone: audio.greenTone,
+        },
+        red: {
+            $el: $(".red"),
+            tone: audio.redTone,
+        },
+        blue: {
+            $el: $(".blue"),
+            tone: audio.blueTone,
+        },
+        yellow: {
+            $el: $(".yellow"),
+            tone: audio.yellowTone,
+        }
     }
-    const red = {
-        $el: $(".red"),
-        tone: redTone,
-    }
-    const blue = {
-        $el: $(".blue"),
-        tone: blueTone,
-    }
-    const yellow = {
-        $el: $(".yellow"),
-        tone: yellowTone,
-    }
-    
+    var colorArr = [colors.green, colors.blue, colors.yellow, colors.red];
+
     const $powerBtn = $('div.toggle.btn.btn-xs');
 
     //Power Button
@@ -50,53 +56,56 @@ $(document).ready(function () {
     //Startup fun
     function startup(powerStatus) {
         if (powerStatus === true) {
+            (function lightUp() {
+                function toggleColor(a) {
+                    $(a).toggleClass('clicked');
+                }
 
-            function toggleColor(a) {
-                $(a).toggleClass('clicked');
-            }
+                var time = [200, 400, 600, 800];
+                var time2 = [400, 600, 800, 1000];
 
-            var arr = [green, blue, yellow, red];
-            var time = [200, 400, 600, 800];
-            var time2 = [400, 600, 800, 1000];
-
-            arr.forEach(function (a, i, c) {
-                setTimeout(
-                    function () {
+                colorArr.forEach(function (a, i, c) {
+                    setTimeout(
+                        function () {
+                            toggleColor(a.$el);
+                            colorArr[i].tone.play();
+                            console.log('Go!')
+                        },
+                        time[i]);
+                    setTimeout(function () {
                         toggleColor(a.$el);
-                        arr[i].tone.play();
-                        console.log('Go!')
-                    },
-                    time[i]);
+                    }, time2[i])
+                });
                 setTimeout(function () {
-                    toggleColor(a.$el);
-                }, time2[i])
-            });
-            setTimeout(function () {
-                toggleColor(green);
-                //green.tone.play();
-                toggleColor(red);
-                toggleColor(blue);
-                toggleColor(yellow);
-            }, 1200)
-            setTimeout(function () {
-                toggleColor(green);
-                toggleColor(red);
-                toggleColor(blue);
-                toggleColor(yellow);
-            }, 2000)
+                    toggleColor(colors.green.$el);
+                    //green.tone.play();
+                    toggleColor(colors.red.$el);
+                    toggleColor(colors.blue.$el);
+                    toggleColor(colors.yellow.$el);
+                }, 1200)
+                setTimeout(function () {
+                    toggleColor(colors.green.$el);
+                    toggleColor(colors.red.$el);
+                    toggleColor(colors.blue.$el);
+                    toggleColor(colors.yellow.$el);
+                }, 2000)
+            })();
         }
     }
 
-    function buttonClick() {
+    function buttonClick(color) {
         $('.color-button').mousedown(function () {
             $(this).toggleClass('clicked');
+            //playtone
         }).mouseup(function () {
             $(this).toggleClass('clicked');
-        })
+        });
+
     }
 
     function random() {
         randomNum = Math.floor((Math.random() * 4) + 1);
-        simonCall.push(num);
+        simonCall.push(colorArr[randomNum]);
+        buttonClick(); //playback()
     }
 });

@@ -110,14 +110,14 @@ body {
   .button-controls label {
     color: white; }
 
+.btn-default.active {
+  background-color: red;
+  color: white; }
+
 .control-panel .toggle {
   margin: 3px; }
   .control-panel .toggle .toggle-on {
     background: #e00000; }
-
-.btn-default.active {
-  background-color: black;
-  color: white; }
 
 .count {
   border: 2px solid white;
