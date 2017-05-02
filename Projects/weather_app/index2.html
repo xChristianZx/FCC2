@@ -1,52 +1,54 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Today's Forecast</title>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="css/weather-icons.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">
+  <title>Today's Forecast</title>
 
-    <script src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  </head>
+  <link rel="stylesheet" href="css/weather-icons.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
 
-  <body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
 
-    <div class="main-box">
+<body>
 
-      <!-- City -->
-      <h2>Today's forecast for:</h2>
+  <div class="main-box">
 
-      <p>
-        <span id="city"></span>
-      </p>
+    <!-- City -->
+    <h2>Today's forecast for:</h2>
 
-      <!-- Temp -->
-      <p class = "templine">
-        <span id="temp"></span>
-      </p>
+    <p>
+      <span id="date"></span>
+    </p>
 
-      <!-- Button -->
-      <!--
-      <button id = "toggle-btn" class="btn" type="button" name="button">C/F</button>
-    -->
+    <p>
+      <span id="city"></span>
+    </p>
 
-      <!-- Icon -->
-      <p id= "weather-icon">
-      </p>
+    <!-- Temp -->
+    <p class="templine">
+      <span id="temp"></span>
+    </p>
 
-      <!--Forecast -->
-      <p>
-        <span id ="desc"></span>
-      </p>
+    <!-- Icon -->
+    <p id="weather-icon">
+    </p>
 
-    </div>
+    <!--Forecast -->
+    <p>
+      <span id="desc"></span>
+    </p>
 
-      <!-- Scripts -->
-      <script src="weather_app2.js"></script>
-  </body>
+
+  </div>
+
+  <!-- Scripts -->
+  <script src="weather_app2.js"></script>
+</body>
+
 </html>
