@@ -114,6 +114,16 @@ body {
   background-color: red;
   color: white; }
 
+.strict-btn {
+  background-color: rgba(255, 0, 0, 0.4); }
+  .strict-btn.active {
+    background-color: red; }
+
+.start-btn {
+  background-color: #003b00; }
+  .start-btn.active {
+    background-color: #00ca00; }
+
 .control-panel .toggle {
   margin: 3px; }
   .control-panel .toggle .toggle-on {

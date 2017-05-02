@@ -137,7 +137,18 @@ body {
     background-color: red;
     color: white;
 }
-
+.strict-btn {
+    background-color: rgba(255, 0, 0, .4);
+    &.active {
+        background-color: red;
+    }
+}
+.start-btn {
+    background-color: $green;
+    &.active{
+        background-color: $green-on;
+    }
+}
 .control-panel .toggle {
     margin: 3px;
     .toggle-on {
