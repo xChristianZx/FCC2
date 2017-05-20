@@ -130,3 +130,8 @@ body {
     grid-column: 3/4;
     grid-row: 3/4;
 }
+
+.key-press, .clicked {
+    transform: scale(1.5);
+    border-color: red;
+}

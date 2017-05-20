@@ -100,7 +100,6 @@ $(document).ready(function () {
         }).mouseup(function () {
             $(this).toggleClass('clicked');
         });
-
     }
 
     function random() {
