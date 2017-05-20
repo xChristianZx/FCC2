@@ -1,9 +1,11 @@
 $(document).ready(function () {
-    var inputArr = [0];
+    var inputArr = [];
     console.log(inputArr);
     
     //Print to form
-    $('#output-text').text(inputArr);
+    function printToDisplay () {
+        $('#output-text').text(inputArr.join(''));
+    };
 
     $('#clear').click(function () {
         inputArr = [];
@@ -17,7 +19,7 @@ $(document).ready(function () {
         //mouseButtonClick();
         console.log(inputArr)
         console.log(e);
-        $('#output-text').text(inputArr);
+        printToDisplay();
     })
     
     function mouseButtonClick() {
