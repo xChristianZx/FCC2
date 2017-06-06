@@ -70,7 +70,8 @@ body {
 
 #equals {
   grid-column: 4/5;
-  grid-row: 6/7; }
+  grid-row: 6/7;
+  background-color: orange; }
 
 #decimal {
   grid-column: 3/4;
