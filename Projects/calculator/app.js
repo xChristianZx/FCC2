@@ -3,20 +3,22 @@
 // 1. fix after equality followed by more number instead of operator
 
 // post equality(true) =>
-//     1. number []
+//     1. number [x]
 //     2. operator []
-//     3. clear []
+//     3. clear [x]
 
 $(document).ready(function () {
     const clearArr = [0];
     var inputArr = [];
     var historyArr = [];
     var equality = false;
+    var test;
+    var equals;
 
     function initialize() {
         inputArr = [];
         historyArr = [];
-        var equality = false;
+        equality = false;
         console.log('equality: ', equality);
         $('#output-text').text(clearArr[0]);
         $('#history-text').text(clearArr[0]);
@@ -35,9 +37,21 @@ $(document).ready(function () {
         };
     };
 
+    function numberInput() {
+        //refactor for below
+
+        // var number = $(this).attr('value');
+        //     $('#output-text').text(number);
+        //     $('#history-text').text(number);
+        //     inputArr.push(number)
+        //     console.log(inputArr)
+        //     //console.log(e);
+        //     printToDisplay();
+    }
+
     function compute() {
-        var test = inputArr.join('');
-        var equals = math.eval(test);
+        test = inputArr.join('');
+        equals = math.eval(test);
         console.log('test', test, 'equals', equals)
         console.log(typeof test);
         $('#output-text').text(equals);
@@ -45,7 +59,7 @@ $(document).ready(function () {
         $('#history-text').text(test);
         inputArr = [];
         inputArr.push(equals);
-        var equality = true;
+        equality = true;
         console.log('equality', equality);
         console.log('history-text', historyArr);
     };
@@ -66,24 +80,52 @@ $(document).ready(function () {
     // number button click event
     $('.number').click(function (e) {
         //errantZero();
-        var number = $(this).attr('value');
-        $('#output-text').text(number);
-        $('#history-text').text(number);
-        inputArr.push(number)
-        console.log(inputArr)
-        //console.log(e);
-        printToDisplay();
+        if (equality) {
+            console.log(equality);
+            initialize();
+            var number = $(this).attr('value');
+            $('#output-text').text(number);
+            $('#history-text').text(number);
+            inputArr.push(number)
+            console.log(inputArr)
+            //console.log(e);
+            printToDisplay();
+        } else {
+            console.log(equality);
+            var number = $(this).attr('value');
+            $('#output-text').text(number);
+            $('#history-text').text(number);
+            inputArr.push(number)
+            console.log(inputArr)
+            //console.log(e);
+            printToDisplay();
+        }
     });
 
-    // operator button click - in order to clear 0 from initial input
+    // operator button click
     $('.operator').click(function (e) {
-        var number = $(this).attr('value');
-        $('#output-text').text(number);
-        $('#history-text').text(number);
-        inputArr.push(number)
-        console.log(inputArr)
-        //console.log(e);
-        printToDisplay();
+        if (equality) {
+            //insert solution here!!!
+            equality = false;
+            console.log(equality);
+            
+            var number = $(this).attr('value');
+            $('#output-text').text(number);
+            $('#history-text').text(number);
+            inputArr.push(number)
+            console.log(inputArr)
+            //console.log(e);
+            printToDisplay();
+        } else {
+            console.log(equality);
+            var number = $(this).attr('value');
+            $('#output-text').text(number);
+            $('#history-text').text(number);
+            inputArr.push(number)
+            console.log(inputArr)
+            //console.log(e);
+            printToDisplay();
+        }
     });
 
     $('#equals').click(function () {
