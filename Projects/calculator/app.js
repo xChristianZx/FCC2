@@ -1,6 +1,6 @@
 //TO DO
-// 1. joining history array without commas
-// 2. fix after equality followed by more number instead of operator
+
+// 1. fix after equality followed by more number instead of operator
 
 // post equality(true) =>
 //     1. number []
@@ -17,6 +17,7 @@ $(document).ready(function () {
         inputArr = [];
         historyArr = [];
         var equality = false;
+        console.log('equality: ', equality);
         $('#output-text').text(clearArr[0]);
         $('#history-text').text(clearArr[0]);
     };
@@ -38,20 +39,21 @@ $(document).ready(function () {
         var test = inputArr.join('');
         var equals = math.eval(test);
         console.log('test', test, 'equals', equals)
-        //console.log(typeof test);
+        console.log(typeof test);
         $('#output-text').text(equals);
-        historyArr.push(equals);
-        $('#history-text').text(inputArr);
+        historyArr.push(test);
+        $('#history-text').text(test);
         inputArr = [];
         inputArr.push(equals);
         var equality = true;
         console.log('equality', equality);
+        console.log('history-text', historyArr);
     };
 
     // AC all clear
     $('#all-clear').click(function () {
         initialize();
-        console.log('AC', inputArr, historyArr);
+        //console.log('AC', inputArr, historyArr);
     });
 
     // CE clear entry - only clears input
