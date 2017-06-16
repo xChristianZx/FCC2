@@ -2,7 +2,7 @@ $dark-slate: #2e5266;
 $operator: orange;
 html,
 body {
-    background-color: $dark-slate;
+    background-color: #9bc9ca;
     height: 100%;
     width: 100%;
     display: flex;
@@ -25,6 +25,16 @@ body {
     align-items: center;
 }
 
+.camera {
+    background-color: #040f0f;
+    border: 2px solid black;
+    border-radius: 90px;
+    height: 10px;
+    width: 10px;
+    position: relative;
+    margin: 0 auto;
+    margin-top: 10px;
+}
 .ear-phone{
     background-color: #040f0f;
     border: 2px solid black;
