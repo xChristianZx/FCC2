@@ -4,6 +4,7 @@
 // 2. plus/ minus function
 // 3. number input refactoring
 // 4. operator summation
+// 5. Reactive design
 // idea: 3 arrays - input, holding, history = see iphone
 
 $(document).ready(function () {
@@ -62,7 +63,7 @@ $(document).ready(function () {
         test = inputArr.join('');
         equals = math.eval(test);
         var ans = math.format(equals, {
-            precision: 14
+            precision: 16
         }); //to prevent rounding errors
         console.log('test', test, 'equals', equals)
         $outputText.text(ans);
@@ -192,7 +193,8 @@ $(document).ready(function () {
     $('#equals').click(function () {
         compute();
     });
-
+    
+    //Keybindings
     $(document).keydown(function (e) {
         if (e.shiftKey) {
             switch (e.which){
@@ -206,34 +208,44 @@ $(document).ready(function () {
         } else {
             switch (e.which) {
                 case 48:
+                case 96:
                     $('#zero').click();
                     console.log(e);
                     break;
                 case 49:
+                case 97:
                     $('#one').click();
                     break;
                 case 50:
+                case 98:
                     $('#two').click();
                     break;
                 case 51:
+                case 99:
                     $('#three').click();
                     break;
                 case 52:
+                case 100:
                     $('#four').click();
-                    break;
+                    break;                
                 case 53:
+                case 101:
                     $('#five').click();
                     break;
                 case 54:
+                case 102:
                     $('#six').click();
                     break;
                 case 55:
+                case 103:
                     $('#seven').click();
                     break;
                 case 56:
+                case 104:
                     $('#eight').click();
                     break;
                 case 57:
+                case 105:
                     $('#nine').click();
                     break;
                 case 65:
@@ -247,13 +259,22 @@ $(document).ready(function () {
                     $('#equals').click();
                     break;                    
                 case 189:
+                case 109:
                     $('#subtract').click();
                     break;
                 case 190:
+                case 110:
                     $('#decimal').click();
                     break;
                 case 191:
+                case 111:
                     $('#divide').click();
+                    break;
+                case 106:
+                    $('#multiply').click();
+                    break;
+                case 107:
+                    $('#add').click();
                     break;
                 default:
                     return;
