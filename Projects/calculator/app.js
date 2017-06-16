@@ -64,7 +64,7 @@ $(document).ready(function () {
         test = inputArr.join('');
         equals = math.eval(test);
         var ans = math.format(equals, {
-            precision: 14
+            precision: 20
         }); //to prevent rounding errors
         console.log('test', test, 'equals', equals)
         $outputText.text(ans);
