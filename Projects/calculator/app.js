@@ -4,7 +4,8 @@
 // 2. plus/ minus function
 // 3. number input refactoring
 // 4. operator summation
-// 5. Reactive design
+// 5. percentage btn and function
+// 6. Reactive design
 // idea: 3 arrays - input, holding, history = see iphone
 
 $(document).ready(function () {
@@ -63,7 +64,7 @@ $(document).ready(function () {
         test = inputArr.join('');
         equals = math.eval(test);
         var ans = math.format(equals, {
-            precision: 16
+            precision: 14
         }); //to prevent rounding errors
         console.log('test', test, 'equals', equals)
         $outputText.text(ans);
@@ -282,11 +283,4 @@ $(document).ready(function () {
         }
         e.preventDefault();
     });
-
-    // document.onkeydown = function (e) {
-    //     e = e || window.event;
-    //     switch(e.which || e.keycode){
-
-    //     }
-    // };
 });

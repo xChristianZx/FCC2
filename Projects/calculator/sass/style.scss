@@ -1,5 +1,9 @@
+$dark-slate: #2e5266;
+$operator: orange;
+
 html,
 body {
+    background-color: $dark-slate;
     height: 100%;
     width: 100%;
     display: flex;
@@ -55,9 +59,13 @@ body {
     border: 1px solid darkgrey;
     border-radius: 0px;
 }
+.number, .decimal {
+    background-color: lightgrey;
+}
 
-.operator {
-    background-color: orange;
+.operator, .equals {
+    background-color: $operator;
+    color: white;
 }
 
 #divide {
@@ -83,7 +91,7 @@ body {
 #equals {
     grid-column: 4/5;
     grid-row: 6/7;
-    background-color: orange;
+    background-color: $operator;
 }
 
 #decimal {
@@ -144,5 +152,4 @@ body {
 
 .key-press, .clicked {
     transform: scale(1.5);
-    border-color: red;
 }
