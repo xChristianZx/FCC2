@@ -10,7 +10,7 @@ $(document).ready(function () {
     const clearArr = [0];
     const $outputText = $('#output-text');
     const $historyText = $('#history-text');
-    
+
     var inputArr = [];
     var historyArr = [];
     var equality;
@@ -76,7 +76,7 @@ $(document).ready(function () {
         console.log('history-text', historyArr);
     };
 
-// ideally to sum a input as you enter an operator - like iPhone
+    // ideally to sum a input as you enter an operator - like iPhone
     // function operatorCompute() {
     //     test = inputArr.join('');
     //     equals = math.eval(test);
@@ -136,7 +136,7 @@ $(document).ready(function () {
     $('#plus-minus').click(function () {
 
     });
-    
+
     // Number button click event
     $('.number').click(function (e) {
         if (equality) {
@@ -151,8 +151,8 @@ $(document).ready(function () {
             printToDisplay();
         } else {
             console.log('Number equality check:', equality);
-           // numberInput();
-            console.log('THIS',this);
+            // numberInput();
+            console.log('THIS', this);
             number = $(this).attr('value');
             inputArr.push(number)
             console.log(inputArr)
@@ -184,7 +184,7 @@ $(document).ready(function () {
             console.log(inputArr)
             //console.log(e);
             printToDisplay();
-            console.log('THIS',this);
+            console.log('THIS', this);
         }
     });
 
@@ -192,4 +192,80 @@ $(document).ready(function () {
     $('#equals').click(function () {
         compute();
     });
+
+    $(document).keydown(function (e) {
+        if (e.shiftKey) {
+            switch (e.which){
+                case 56:
+                    $('#multiply').click();
+                    break;
+                case 187:
+                    $('#add').click();
+                    break;
+            }
+        } else {
+            switch (e.which) {
+                case 48:
+                    $('#zero').click();
+                    console.log(e);
+                    break;
+                case 49:
+                    $('#one').click();
+                    break;
+                case 50:
+                    $('#two').click();
+                    break;
+                case 51:
+                    $('#three').click();
+                    break;
+                case 52:
+                    $('#four').click();
+                    break;
+                case 53:
+                    $('#five').click();
+                    break;
+                case 54:
+                    $('#six').click();
+                    break;
+                case 55:
+                    $('#seven').click();
+                    break;
+                case 56:
+                    $('#eight').click();
+                    break;
+                case 57:
+                    $('#nine').click();
+                    break;
+                case 65:
+                    $('#all-clear').click();
+                    break;
+                case 67:
+                    $('#clear-entry').click();
+                    break;
+                case 13:
+                case 187:
+                    $('#equals').click();
+                    break;                    
+                case 189:
+                    $('#subtract').click();
+                    break;
+                case 190:
+                    $('#decimal').click();
+                    break;
+                case 191:
+                    $('#divide').click();
+                    break;
+                default:
+                    return;
+            }
+        }
+        e.preventDefault();
+    });
+
+    // document.onkeydown = function (e) {
+    //     e = e || window.event;
+    //     switch(e.which || e.keycode){
+
+    //     }
+    // };
 });
