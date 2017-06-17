@@ -9,4 +9,4 @@
 * [x] User Story: I can keep chaining mathematical operations together until I hit the equal button, and the calculator will tell me the correct output.
 
 *Note* - 
-Using math.js for computing as I wanted to avoid using eval() out of best practices
+Originally used *math.js* for computing as I wanted to avoid using javascript's function property *eval()* out of best practices; however I'm starting to think there both the same

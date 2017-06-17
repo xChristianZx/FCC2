@@ -1,6 +1,7 @@
 //TO DO
 
-// 1. fix history bug when doing multiple operators with equality 
+// 1. refactor history display code 
+// left adjust history?
 // 2. plus/ minus function
 // 3. number input refactoring
 // 4. operator summation
@@ -11,16 +12,20 @@
 $(document).ready(function () {
     const clearArr = [0];
     const $outputText = $('#output-text');
-    const $historyText = $('#history-text');
-
+    const $historyText1 = $('#history-text1');
+    const $historyText2 = $('#history-text2');
+    
     var inputArr = [];
     var historyArr = [];
     var equality;
-    var test;
+    var inputArrStr;
     var equals;
     var decimal;
     var number;
     initialize();
+
+    var history1 = historyArr[historyArr.length -1];
+    var history2 = historyArr[historyArr.length -2];
 
     function equalsReset() {
         equals = false;
@@ -42,17 +47,20 @@ $(document).ready(function () {
         equalityReset();
         //console.log('equality: ', equality);
         $outputText.text(clearArr[0]);
-        $historyText.text(clearArr[0]);
+        $historyText1.text(clearArr[0]);
+        $historyText2.text(clearArr[0]);
     };
 
     //Print to form
     function printToDisplay() {
         $outputText.text(inputArr.join(''));
-        $historyText.text(historyArr.join(''));
+        $historyText1.text(history1);
+        $historyText2.text(history2);
+        console.log('historyArr:',historyArr);
     };
 
     function numberInput() {
-        // refactor for below - .bind();
+        // refactor for below - .bind()?;
         number = $(this).attr('value');
         inputArr.push(number)
         console.log(inputArr)
@@ -61,15 +69,17 @@ $(document).ready(function () {
     }
 
     function compute() {
-        test = inputArr.join('');
-        equals = math.eval(test);
+        inputArrStr = inputArr.join('');
+        equals = math.eval(inputArrStr);
         var ans = math.format(equals, {
-            precision: 20
+            precision: 14
         }); //to prevent rounding errors
-        console.log('test', test, 'equals', equals)
+        console.log('inputArrStr', inputArrStr, 'equals', equals, 'ans', ans)
         $outputText.text(ans);
-        historyArr.push(test);
-        $historyText.text(test);
+        historyArr.push(inputArrStr);
+        $historyText1.text(inputArrStr);
+        history2 = historyArr[historyArr.length - 2];
+        $historyText2.text(history2);
         inputArr = [];
         inputArr.push(ans);
         equality = true;
