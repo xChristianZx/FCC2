@@ -1,11 +1,12 @@
 //TO DO
 
 // 1. refactor history display code 
-// left adjust history?
+// on init hide history buttons
+// on/off Home Button
 // 2. plus/ minus function
 // 3. number input refactoring
 // 4. operator summation
-// 5. percentage btn and function
+// 5. percentage btn and function (x * .01)
 // 6. Reactive design
 // idea: 3 arrays - input, holding, history = see iphone
 
