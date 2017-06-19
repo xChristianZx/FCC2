@@ -1,12 +1,10 @@
 //TO DO
 
 // 1. refactor history display code 
-// on init hide history buttons
-// on/off Home Button
-// 2. plus/ minus function
-// 3. number input refactoring
-// 4. operator summation
-// 5. percentage btn and function (x * .01)
+// 2. on/off transition - rgba transition?
+// 3. plus/ minus function
+// 4. number input refactoring
+// 5. operator summation
 // 6. Reactive design
 // idea: 3 arrays - input, holding, history = see iphone
 
@@ -15,7 +13,7 @@ $(document).ready(function () {
     const $outputText = $('#output-text');
     const $historyText1 = $('#history-text1');
     const $historyText2 = $('#history-text2');
-    
+
     var inputArr = [];
     var historyArr = [];
     var equality;
@@ -25,8 +23,8 @@ $(document).ready(function () {
     var number;
     initialize();
 
-    var history1 = historyArr[historyArr.length -1];
-    var history2 = historyArr[historyArr.length -2];
+    var history1 = historyArr[historyArr.length - 1];
+    var history2 = historyArr[historyArr.length - 2];
 
     function equalsReset() {
         equals = false;
@@ -48,16 +46,21 @@ $(document).ready(function () {
         equalityReset();
         //console.log('equality: ', equality);
         $outputText.text(clearArr[0]);
-        $historyText1.text(clearArr[0]);
-        $historyText2.text(clearArr[0]);
+        $historyText1.text(' ');
+        $historyText2.text(' ');
     };
+    
+    function inputArrJoin () {
+        return inputArrStr = inputArr.join('');
+    }
 
     //Print to form
     function printToDisplay() {
-        $outputText.text(inputArr.join(''));
+        //$outputText.text(inputArr.join(''));
+        $outputText.text(inputArrJoin());
         $historyText1.text(history1);
         $historyText2.text(history2);
-        console.log('historyArr:',historyArr);
+        console.log('historyArr:', historyArr);
     };
 
     function numberInput() {
@@ -70,12 +73,14 @@ $(document).ready(function () {
     }
 
     function compute() {
-        inputArrStr = inputArr.join('');
+        inputArrJoin();
         equals = math.eval(inputArrStr);
         var ans = math.format(equals, {
             precision: 14
         }); //to prevent rounding errors
+        
         console.log('inputArrStr', inputArrStr, 'equals', equals, 'ans', ans)
+        
         $outputText.text(ans);
         historyArr.push(inputArrStr);
         $historyText1.text(inputArrStr);
@@ -145,11 +150,23 @@ $(document).ready(function () {
         };
     });
 
+    //On/Off Button
+    $('.home-btn').click(function () {
+        console.log('On/Off');
+         $('.off-wrapper').toggle(500);
+        }
+    )
+
     //Plus/Minus button
-    $('#plus-minus').click(function () {
-
+    $('#percent').click(function () {
+        // (x * 01);
+        // inputArrJoin();
+        // (inputArrStr * .01);
+        inputArr.push('* .01');
+        compute();
+       
     });
-
+    
     // Number button click event
     $('.number').click(function (e) {
         if (equality) {
@@ -159,7 +176,7 @@ $(document).ready(function () {
             inputArr = [];
             number = $(this).attr('value');
             inputArr.push(number)
-            console.log(inputArr)
+            console.log('inputArr: ', inputArr)
             //console.log(e);
             printToDisplay();
         } else {
@@ -168,7 +185,7 @@ $(document).ready(function () {
             console.log('THIS', this);
             number = $(this).attr('value');
             inputArr.push(number)
-            console.log(inputArr)
+            console.log('inputArr: ', inputArr)
             //console.log(e);
             printToDisplay();
         }
@@ -186,7 +203,7 @@ $(document).ready(function () {
 
             number = $(this).attr('value');
             inputArr.push(number)
-            console.log(inputArr)
+            console.log('inputArr: ', inputArr)
             //console.log(e);
             printToDisplay();
         } else {
@@ -194,7 +211,7 @@ $(document).ready(function () {
             console.log('Operator Eqauality Check: ', equality);
             number = $(this).attr('value');
             inputArr.push(number)
-            console.log(inputArr)
+           console.log('inputArr: ', inputArr)
             //console.log(e);
             printToDisplay();
             console.log('THIS', this);
@@ -205,11 +222,11 @@ $(document).ready(function () {
     $('#equals').click(function () {
         compute();
     });
-    
+
     //Keybindings
     $(document).keydown(function (e) {
         if (e.shiftKey) {
-            switch (e.which){
+            switch (e.which) {
                 case 56:
                     $('#multiply').click();
                     break;
@@ -239,7 +256,7 @@ $(document).ready(function () {
                 case 52:
                 case 100:
                     $('#four').click();
-                    break;                
+                    break;
                 case 53:
                 case 101:
                     $('#five').click();
@@ -269,7 +286,7 @@ $(document).ready(function () {
                 case 13:
                 case 187:
                     $('#equals').click();
-                    break;                    
+                    break;
                 case 189:
                 case 109:
                     $('#subtract').click();
