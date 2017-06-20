@@ -21,6 +21,7 @@ $(document).ready(function () {
     var decimal;
     var number;
     var answer;
+    var powerOn = true;
     initialize();
 
     var history1 = historyArr[historyArr.length - 1];
@@ -112,6 +113,7 @@ $(document).ready(function () {
     // AC all clear
     $('#all-clear').click(function () {
         initialize();
+        console.log('A/C equality check: ', equality);
     });
 
     // CE clear entry - only clears input
@@ -149,10 +151,10 @@ $(document).ready(function () {
         };
     });
 
-    var powerOn = true;
+
     //On/Off Button
     $('.home-btn').click(function () {
-        console.log('On/Off');    
+        console.log('On/Off');
         if (powerOn) {
             $('.off-wrapper').addClass('off');
             powerOn = false;
@@ -164,12 +166,8 @@ $(document).ready(function () {
 
     //Plus/Minus button
     $('#percent').click(function () {
-        // (x * 01);
-        // inputArrJoin();
-        // (inputArrStr * .01);
         inputArr.push('* .01');
         compute();
-
     });
 
     // Number button click event

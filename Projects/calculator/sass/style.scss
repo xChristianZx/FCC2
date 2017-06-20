@@ -91,7 +91,7 @@ body {
     min-height: 500px;
     width: 260px;
     background-color: black;
-    animation-name: on;
+    animation-name: power-on;
     animation-duration: 1s;
     animation-timing-function: linear;
     animation-delay: 0;
@@ -99,7 +99,7 @@ body {
     animation-iteration-count: 1;
     animation-fill-mode: none;
     animation-play-state: running;
-    @keyframes on {
+    @keyframes power-on {
         0% {
             opacity: 1;
             background-color: black;
@@ -116,7 +116,7 @@ body {
     transition: visibility 1s linear;
     visibility: hidden;
     &.off {
-        animation-name: stretch;
+        animation-name: power-off;
         animation-duration: 1s;
         animation-timing-function: linear;
         animation-delay: 0;
@@ -124,7 +124,7 @@ body {
         animation-iteration-count: 1;
         animation-fill-mode: none;
         animation-play-state: running;
-        @keyframes stretch {
+        @keyframes power-off {
             0% {
                 opacity: 0;
                 background-color: black;
@@ -137,8 +137,7 @@ body {
                 opacity: 1;
                 background-color: black;
             }
-        } 
-        // transition: visibility 2s linear 2s;
+        } // transition: visibility 2s linear 2s;
         // opacity: 1;
         visibility: visible;
     }
