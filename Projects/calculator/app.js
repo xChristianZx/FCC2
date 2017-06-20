@@ -1,7 +1,6 @@
 //TO DO
 
 // 1. refactor history display code 
-// 2. on/off transition - rgba transition?
 // 3. plus/ minus function
 // 4. number input refactoring
 // 5. operator summation
@@ -21,6 +20,7 @@ $(document).ready(function () {
     var equals;
     var decimal;
     var number;
+    var answer;
     initialize();
 
     var history1 = historyArr[historyArr.length - 1];
@@ -49,14 +49,13 @@ $(document).ready(function () {
         $historyText1.text(' ');
         $historyText2.text(' ');
     };
-    
-    function inputArrJoin () {
+
+    function inputArrJoin() {
         return inputArrStr = inputArr.join('');
     }
 
     //Print to form
     function printToDisplay() {
-        //$outputText.text(inputArr.join(''));
         $outputText.text(inputArrJoin());
         $historyText1.text(history1);
         $historyText2.text(history2);
@@ -75,19 +74,19 @@ $(document).ready(function () {
     function compute() {
         inputArrJoin();
         equals = math.eval(inputArrStr);
-        var ans = math.format(equals, {
+        answer = math.format(equals, {
             precision: 14
         }); //to prevent rounding errors
-        
-        console.log('inputArrStr', inputArrStr, 'equals', equals, 'ans', ans)
-        
-        $outputText.text(ans);
+
+        console.log('inputArrStr', inputArrStr, 'equals', equals, 'ans', answer)
+
+        $outputText.text(answer);
         historyArr.push(inputArrStr);
         $historyText1.text(inputArrStr);
         history2 = historyArr[historyArr.length - 2];
         $historyText2.text(history2);
         inputArr = [];
-        inputArr.push(ans);
+        inputArr.push(answer);
         equality = true;
 
         console.log('Equal sign equality: ', equality);
@@ -150,12 +149,18 @@ $(document).ready(function () {
         };
     });
 
+    var powerOn = true;
     //On/Off Button
     $('.home-btn').click(function () {
-        console.log('On/Off');
-         $('.off-wrapper').toggle(500);
+        console.log('On/Off');    
+        if (powerOn) {
+            $('.off-wrapper').addClass('off');
+            powerOn = false;
+        } else {
+            $('.off-wrapper').removeClass('off');
+            powerOn = true;
         }
-    )
+    });
 
     //Plus/Minus button
     $('#percent').click(function () {
@@ -164,9 +169,9 @@ $(document).ready(function () {
         // (inputArrStr * .01);
         inputArr.push('* .01');
         compute();
-       
+
     });
-    
+
     // Number button click event
     $('.number').click(function (e) {
         if (equality) {
@@ -211,7 +216,7 @@ $(document).ready(function () {
             console.log('Operator Eqauality Check: ', equality);
             number = $(this).attr('value');
             inputArr.push(number)
-           console.log('inputArr: ', inputArr)
+            console.log('inputArr: ', inputArr)
             //console.log(e);
             printToDisplay();
             console.log('THIS', this);

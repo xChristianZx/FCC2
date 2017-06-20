@@ -1,6 +1,5 @@
 $dark-slate: #2e5266;
 $operator: orange;
-
 html,
 body {
     background-color: #9bc9ca;
@@ -14,7 +13,7 @@ body {
 }
 
 .phone-wrapper {
-    background-color:#1a2424;
+    background-color: #1a2424;
     border: 2px solid silver;
     border-radius: 45px;
     box-shadow: 3px 3px 1px black;
@@ -37,7 +36,8 @@ body {
     margin: 0 auto;
     margin-top: 10px;
 }
-.ear-phone{
+
+.ear-phone {
     background-color: #040f0f;
     border: 2px solid black;
     border-radius: 90px;
@@ -70,15 +70,16 @@ body {
     border: 2px solid black;
     min-height: 500px;
     width: 260px;
-    &.off{
+    &.off {
         min-height: 500px;
         width: 260px;
         background-color: black;
     }
 }
+
 .off-wrapper {
     z-index: 2;
-    position: absolute; 
+    position: absolute;
     margin: 0 auto;
     margin-top: 10px;
     display: grid;
@@ -90,6 +91,57 @@ body {
     min-height: 500px;
     width: 260px;
     background-color: black;
+    animation-name: on;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-delay: 0;
+    animation-direction: normal;
+    animation-iteration-count: 1;
+    animation-fill-mode: none;
+    animation-play-state: running;
+    @keyframes on {
+        0% {
+            opacity: 1;
+            background-color: black;
+        }
+        50% {
+            background-color: black;
+            opacity: .5;
+        }
+        100% {
+            opacity: 0;
+            background-color: black;
+        }
+    }
+    transition: visibility 1s linear;
+    visibility: hidden;
+    &.off {
+        animation-name: stretch;
+        animation-duration: 1s;
+        animation-timing-function: linear;
+        animation-delay: 0;
+        animation-direction: normal;
+        animation-iteration-count: 1;
+        animation-fill-mode: none;
+        animation-play-state: running;
+        @keyframes stretch {
+            0% {
+                opacity: 0;
+                background-color: black;
+            }
+            50% {
+                background-color: black;
+                opacity: .5;
+            }
+            100% {
+                opacity: 1;
+                background-color: black;
+            }
+        } 
+        // transition: visibility 2s linear 2s;
+        // opacity: 1;
+        visibility: visible;
+    }
 }
 
 .output-wrapper {
@@ -112,6 +164,7 @@ body {
     grid-row: 1/2;
     margin: 2px 5px 10px 20px;
 }
+
 #history-text2 {
     color: grey;
     font-size: 16px;
@@ -120,7 +173,6 @@ body {
     grid-column: 1/3;
     grid-row: 1/2;
     margin: 2px 5px 5px 20px;
-    
 }
 
 #output-text {

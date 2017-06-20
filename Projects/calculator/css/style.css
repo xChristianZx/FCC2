@@ -81,8 +81,47 @@ body {
   border: 2px solid black;
   min-height: 500px;
   width: 260px;
-  background-color: black; }
-
+  background-color: black;
+  animation-name: on;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-delay: 0;
+  animation-direction: normal;
+  animation-iteration-count: 1;
+  animation-fill-mode: none;
+  animation-play-state: running;
+  transition: visibility 1s linear;
+  visibility: hidden; }
+@keyframes on {
+  0% {
+    opacity: 1;
+    background-color: black; }
+  50% {
+    background-color: black;
+    opacity: .5; }
+  100% {
+    opacity: 0;
+    background-color: black; } }
+  .off-wrapper.off {
+    animation-name: stretch;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-delay: 0;
+    animation-direction: normal;
+    animation-iteration-count: 1;
+    animation-fill-mode: none;
+    animation-play-state: running;
+    visibility: visible; }
+@keyframes stretch {
+  0% {
+    opacity: 0;
+    background-color: black; }
+  50% {
+    background-color: black;
+    opacity: .5; }
+  100% {
+    opacity: 1;
+    background-color: black; } }
 .output-wrapper {
   background-color: rgba(0, 0, 0, 0.75);
   display: flex;
