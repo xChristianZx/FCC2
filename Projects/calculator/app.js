@@ -1,10 +1,10 @@
 //TO DO
 
 // 1. refactor history display code 
-// 3. plus/ minus function
-// 4. number input refactoring
-// 5. operator summation
-// 6. Reactive design
+// 2. plus/ minus function
+// 3. number input refactoring
+// 4. operator summation
+// 5. Reactive design
 // idea: 3 arrays - input, holding, history = see iphone
 
 $(document).ready(function () {
