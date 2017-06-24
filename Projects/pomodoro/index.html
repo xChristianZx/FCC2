@@ -27,10 +27,16 @@
         <h1>P is for Pomodoro</h1>
 
         <div class="main-wrapper">
-            <h3 class="timer">Timer here</h3>
+            <div class="timer">
+                <span class="minutes">00</span>
+                <span>min</span>
+                <span>:</span>
+                <span class="seconds">00</span>
+                <span>secs</span>
+            </div>
 
-            <button class="btn stop" type="button">Stop</button>
-            <button class="btn start" type="button">Start</button>
+            <button class="btn stop" type="button" onclick="stopTimer()">Stop</button>
+            <button class="btn start" type="button" onclick="startTimer()">Start</button>
         </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
