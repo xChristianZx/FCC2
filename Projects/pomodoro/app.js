@@ -1,38 +1,48 @@
-// $(document).ready(function () {
+//Fix doc.ready
+//convert function
+//reset ()
 
-// Date.now minus 25mins 
+//$(document).ready(function () {
+
 // 1 min = 60,000 ms;
 // 1 sec = 1000ms;
 // 5 min = 300 sec;
 
-var now = new Date();
-var time;
+var time = 5.25;
 var min;
-var sec;
 var nIntervalId;
 var s;
 
 var $minutes = $('.minutes');
 var $seconds = $('.seconds');
 
-time = 1; // 5 min
 var timeToSec = time * 60;
+//  function timeToSec (t) {
+//      return t * 60;
+//  }
 var seconds = timeToSec;
 
 function init() {
-    //$minutes.
-    //$seconds.
+    convertTime(time);
+    renderHTML();
 };
+init();
 
-function convert(time) {
-    t = time * 60;
+function renderHTML() {
+    $minutes.text((min < 10 ? ('0' + min) : min));
+    $seconds.text((s < 10 ? ('0' + s) : s))
+}
+
+function convertTime(time) {
+   var t = time * 60;
     min = Math.floor(t / 60);
     s = t % 60;
-
+    return t, min, s;
 }
 
 function startTimer() {
     nIntervalId = setInterval(countdown, 1000);
+    console.log('StartTimer');
 };
 
 function countdown() {
@@ -40,8 +50,8 @@ function countdown() {
         stopTimer();
     } else {
         seconds -= 1;
-        console.log('Minutes: ', min, 'Seconds: ', seconds)
-        renderHTML(seconds);
+        console.log('Countdown - Minutes: ', min, 'Seconds: ', seconds)
+        updateTime(seconds);
     }
 };
 
@@ -50,14 +60,32 @@ function stopTimer() {
     console.log('Time Done, stopTimer() executed');
 };
 
-function renderHTML(sec) {
+function updateTime(sec) {
+    //convert(sec);
     min = Math.floor(sec / 60);
-    s = sec % 60;
-    console.log('renderHTML: min:', min, 'sec: ', sec);
+    s = (sec % 60);
+    console.log('renderHTML: min:', min, 'sec: ', s);
 
-    $minutes.text(min);
-    $seconds.text(s);
+    renderHTML()
 };
 
+function addTime() {
+    return ++time;
+};
+function subtractTime() {
+    return --time;
+};
 
-// });
+$('.plus').click(function () {
+    addTime();
+    init();
+    console.log(time,seconds);
+});
+
+$('.minus').click(function () {
+    subtractTime();
+    init();
+    console.log(time);
+});
+
+//});
