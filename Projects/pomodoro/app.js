@@ -1,6 +1,5 @@
-//convert function
+// convert function
 // responsive design
-
 
 $(document).ready(function () {
 
@@ -117,6 +116,5 @@ $(document).ready(function () {
             console.log(time, totalSec);
         }
     });
-
 
 });
