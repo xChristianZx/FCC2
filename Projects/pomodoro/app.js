@@ -1,20 +1,21 @@
 //convert function
-//reset ()
+// responsive design
+
 
 $(document).ready(function () {
-
-    // 1 min = 60,000 ms;
-    // 1 sec = 1000ms;
-    // 5 min = 300 sec;
 
     var time = 25;
     var nIntervalId;
     var min;
     var sec;
     var totalSec;
+    var timerOn = false;
 
     var $minutes = $('.minutes');
     var $seconds = $('.seconds');
+
+    var alarm = '/Users/christianzenaty/Desktop/FCC/Projects/pomodoro/assets/analog-watch-alarm_daniel-simion.mp3';
+    var audio = new Audio(alarm);
 
     function init() {
         convertTime();
@@ -35,23 +36,36 @@ $(document).ready(function () {
     }
 
     function startTimer() {
-        nIntervalId = setInterval(countdown, 1000);
-        console.log('StartTimer');
+        if (!timerOn) {
+            timerOn = true;
+            nIntervalId = setInterval(countdown, 1000);
+            $('.start').addClass('on').text('Stop');
+            console.log('StartTimer');
+        } else {
+            timerOn = false;
+            clearInterval(nIntervalId);
+            $('.start').removeClass('on').text('Start');
+            console.log('Time Done, stopTimer() executed');
+        }
+    };
+
+    function stopTimer() {
+        timerOn = false;
+        clearInterval(nIntervalId);
+        console.log('Time Done, stopTimer() executed');
     };
 
     function countdown() {
         if (totalSec <= 0) {
             stopTimer();
+            audio.play();
+            reset();
+            $('.start').removeClass('on').text('Start');
         } else {
             totalSec -= 1;
             console.log('Countdown - Minutes: ', min, 'Seconds: ', totalSec);
             updateTime(totalSec);
         }
-    };
-
-    function stopTimer() {
-        clearInterval(nIntervalId);
-        console.log('Time Done, stopTimer() executed');
     };
 
     function updateTime(x) {
@@ -61,6 +75,10 @@ $(document).ready(function () {
         console.log('renderHTML: min:', min, 'sec: ', sec);
         renderHTML()
     };
+
+    function reset() {
+        init();
+    }
 
     function addTime() {
         return ++time;
@@ -73,14 +91,17 @@ $(document).ready(function () {
     $('.start').click(function () {
         startTimer()
     });
-    $('.stop').click(function () {
-        stopTimer()
+
+    $('.reset').click(function () {
+        reset();
+        console.log('reset!');
     });
 
     $('.plus').click(function (e) {
         if (time >= 100) {
             e.preventDefault()
         } else {
+
             addTime();
             init();
             console.log(time, totalSec);
@@ -96,5 +117,6 @@ $(document).ready(function () {
             console.log(time, totalSec);
         }
     });
+
 
 });
