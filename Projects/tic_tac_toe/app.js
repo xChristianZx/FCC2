@@ -1,4 +1,4 @@
-// modal to choose X or O's
+// clear board after game
 // modal to start game
 
 //X's turn on odd number moves, O's on even
@@ -20,6 +20,7 @@ $(document).ready(function () {
     var turnCount = 1;
 
     function resetGame() {
+        $square.text(' ');
         turnCount = 1;
         console.log('New Game Start', '\nX\'s turn', '\nturnCount: ', turnCount, );
         console.log('Player value: ', humanPlayer, computerPlayer);
@@ -27,41 +28,27 @@ $(document).ready(function () {
         newGame();
     };
 
-    function newGame() {
-        $('.button-x').click(function (e) {
-            console.log(e);
-            console.log(e.target);
-            humanPlayer = 'X';
-            computerPlayer = 'O';
-            console.log('Players Chosen', 'Human: ', humanPlayer, 'Computer: ', computerPlayer);
-            $('.startup-modal').css('display', 'none');
-
-        });
-        $('.button-o').click(function (e) {
-            console.log(e)
-            humanPlayer = 'O';
-            computerPlayer = 'X';
-            console.log('Players Chosen', 'Human: ', humanPlayer, 'Computer: ', computerPlayer);
-            $('.startup-modal').css('display', 'none');
-        });
-        // $('button').click(function (e) {
-        //     if (e.target == 'button-x') {
-        //         humanPlayer = 'X';
-        //         computerPlayer = 'O';
-        //         console.log('Player Chosen', humanPlayer, computerPlayer);
-        //         $('.startup-modal').css('display', 'none');
-        //     } else if (e.target == 'button-o') {
-        //         humanPlayer = 'O';
-        //         computerPlayer = 'X';
-        //         console.log('Player Chosen', humanPlayer, computerPlayer);
-        //         $('.startup-modal').css('display', 'none');
-        //     } else {
-        //         console.log('Choose player!');
-        //     }
-        // });
+    function hideModal() {
+        $('.startup-modal').css('display', 'none');
     }
 
-
+    function newGame() {
+        $('button').click(function (e) {
+            if (e.target.className == 'button-x') {
+                humanPlayer = 'X';
+                computerPlayer = 'O';
+                console.log(`Players Chosen - Human: ${humanPlayer} 'Computer: ' ${computerPlayer}`);
+               hideModal();
+            } else if (e.target.className == 'button-o') {
+                humanPlayer = 'O';
+                computerPlayer = 'X';
+                console.log(`Players Chosen - Human: ${humanPlayer} 'Computer: ' ${computerPlayer}`);
+                hideModal();
+            } else {
+                console.log('Choose player!');
+            }
+        });
+    }
 
     function turn() {
         if (turnCount === 9) {
@@ -79,12 +66,12 @@ $(document).ready(function () {
     };
 
     $square.click(function (e) {
-        if (turnCount % 2 === 1 && e.target.textContent !== 'O') {
+        if (turnCount % 2 === 1 && e.target.textContent !== 'O' && e.target.textContent !== 'X') {
             $(this).text('X');
             console.log($(this));
             console.log('E: ', e)
             turn();
-        } else if (turnCount % 2 === 0 && e.target.textContent !== 'X') {
+        } else if (turnCount % 2 === 0 && e.target.textContent !== 'X' && e.target.textContent !== 'O') {
             $(this).text('O');
             turn();
         } else {
