@@ -12,6 +12,8 @@ $(document).ready(function () {
     const playerO = 'O';
     const $square = $('.square');
 
+    var modalOff = $('.startup-modal').css('display', 'none');
+
     var humanPlayer;
     var computerPlayer;
 
@@ -19,13 +21,47 @@ $(document).ready(function () {
 
     function resetGame() {
         turnCount = 1;
-        console.log('New Game Start', '\nX\'s turn', '\nturnCount: ', turnCount,);
+        console.log('New Game Start', '\nX\'s turn', '\nturnCount: ', turnCount, );
+        console.log('Player value: ', humanPlayer, computerPlayer);
         $('.startup-modal').css('display', 'flex');
+        newGame();
     };
 
-    $('button').click(function(){
-        $('.startup-modal').css('display', 'none');
-    })
+    function newGame() {
+        $('.button-x').click(function (e) {
+            console.log(e);
+            console.log(e.target);
+            humanPlayer = 'X';
+            computerPlayer = 'O';
+            console.log('Players Chosen', 'Human: ', humanPlayer, 'Computer: ', computerPlayer);
+            $('.startup-modal').css('display', 'none');
+
+        });
+        $('.button-o').click(function (e) {
+            console.log(e)
+            humanPlayer = 'O';
+            computerPlayer = 'X';
+            console.log('Players Chosen', 'Human: ', humanPlayer, 'Computer: ', computerPlayer);
+            $('.startup-modal').css('display', 'none');
+        });
+        // $('button').click(function (e) {
+        //     if (e.target == 'button-x') {
+        //         humanPlayer = 'X';
+        //         computerPlayer = 'O';
+        //         console.log('Player Chosen', humanPlayer, computerPlayer);
+        //         $('.startup-modal').css('display', 'none');
+        //     } else if (e.target == 'button-o') {
+        //         humanPlayer = 'O';
+        //         computerPlayer = 'X';
+        //         console.log('Player Chosen', humanPlayer, computerPlayer);
+        //         $('.startup-modal').css('display', 'none');
+        //     } else {
+        //         console.log('Choose player!');
+        //     }
+        // });
+    }
+
+
 
     function turn() {
         if (turnCount === 9) {
