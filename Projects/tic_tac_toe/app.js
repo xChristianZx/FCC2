@@ -1,4 +1,3 @@
-// player turn determined by even of odd move (%2)
 // modal to choose X or O's
 // modal to start game
 
@@ -13,25 +12,33 @@ $(document).ready(function () {
     const playerO = 'O';
     const $square = $('.square');
 
+    var humanPlayer;
+    var computerPlayer;
+
     var turnCount = 1;
 
     function resetGame() {
         turnCount = 1;
-        console.log('turnCount: ', turnCount, '\nX\'s turn');
+        console.log('New Game Start', '\nX\'s turn', '\nturnCount: ', turnCount,);
+        $('.startup-modal').css('display', 'flex');
     };
+
+    $('button').click(function(){
+        $('.startup-modal').css('display', 'none');
+    })
 
     function turn() {
         if (turnCount === 9) {
-            console.log('game over');
+            console.log('game over \n ***********************');
             resetGame();
         } else if (turnCount % 2 === 1) {
-            console.log('X has gone, O\'s turn');
+            console.log('X has gone, O\'s turn', '\n ------------');
             ++turnCount;
-            console.log('Turn:', turnCount, '\n ------------');
+            console.log('Turn:', turnCount);
         } else {
-            console.log('O has gone, X\'s turn');
+            console.log('O has gone, X\'s turn', '\n ------------');
             ++turnCount;
-            console.log('Turn:', turnCount, '\n ------------');
+            console.log('Turn:', turnCount);
         }
     };
 
