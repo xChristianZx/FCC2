@@ -51,6 +51,7 @@ $(document).ready(function () {
         round = 0;
         gameStart = false;
         strict = false;
+        $('.start-label').text('Start');
         toggleOffBtnLights();
         renderRoundText();
     };
@@ -65,7 +66,11 @@ $(document).ready(function () {
     }
 
     function renderRoundText() {
-        $('.count').text(round + 1);
+        if (gameStart) {
+            $('.count').text(round + 1);
+        } else {
+            $('.count').text('--');
+        }
     }
 
     //Power Button
@@ -82,6 +87,7 @@ $(document).ready(function () {
             console.log(powerStatus, "POWER OFF!!!")
             $('.count').addClass('off');
             $('.color-button').unbind('mousedown').unbind('mouseup');
+            initializeGame();
         }
     })
 
@@ -121,15 +127,22 @@ $(document).ready(function () {
     }
 
     function startGame() {
-        if (powerStatus) {
+        if (powerStatus && !gameStart) {
             gameStart = true;
-            console.log('gameStart = true');
+            console.log('Start Game!');
+            $('.start-label').text('Restart');
             renderRoundText();
             setTimeout(function () {
                 randomNumGenerator();
             }, 2000);
+        } else if (powerStatus && gameStart) {
+            console.log('Restart');
+            toggleOffBtnLights();
+            setTimeout(function () {
+                initializeGame();
+            }, 1000);
         } else {
-            console.log('Turn on the power');
+            console.log('Press the Power Button!')
         }
     };
 
