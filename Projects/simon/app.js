@@ -1,12 +1,14 @@
 'use strict'
+
 $(document).ready(function () {
     //Audio Import
     const audio = {
         greenTone: new Audio('https://s3.amazonaws.com/freecodecamp/simonSound1.mp3'),
         redTone: new Audio('https://s3.amazonaws.com/freecodecamp/simonSound2.mp3'),
         yellowTone: new Audio('https://s3.amazonaws.com/freecodecamp/simonSound3.mp3'),
-        blueTone: new Audio('https://s3.amazonaws.com/freecodecamp/simonSound4.mp3')
-    }
+        blueTone: new Audio('https://s3.amazonaws.com/freecodecamp/simonSound4.mp3'),
+        errorSound: new Audio('/Users/christianzenaty/Desktop/FCC/Projects/simon/assets/Wrong-answer-sound-effect.mp3')
+    };
 
     //Initial variables
     var simonCall = [];
@@ -14,7 +16,7 @@ $(document).ready(function () {
     var gameStart = false;
     var turnCount = 0;
     var round = 0;
-
+    var strict = false;
     const $powerBtn = $('div.toggle.btn.btn-xs');
 
     const colors = {
@@ -46,7 +48,25 @@ $(document).ready(function () {
         simonCall = [];
         playerResponse = [];
         turnCount = 0;
+        round = 0;
+        gameStart = false;
+        strict = false;
+        toggleOffBtnLights();
+        renderRoundText();
     };
+
+    function toggleColor(a) {
+        $(a).toggleClass('clicked');
+    }
+
+    function toggleOffBtnLights() {
+        $('.start-btn').removeClass('active');
+        $('.strict-btn').removeClass('active');
+    }
+
+    function renderRoundText() {
+        $('.count').text(round + 1);
+    }
 
     //Power Button
     var powerStatus = false;
@@ -64,10 +84,6 @@ $(document).ready(function () {
             $('.color-button').unbind('mousedown').unbind('mouseup');
         }
     })
-
-    function toggleColor(a) {
-        $(a).toggleClass('clicked');
-    }
 
     //Startup fun
     function startup(powerStatus) {
@@ -110,30 +126,42 @@ $(document).ready(function () {
             console.log('gameStart = true');
             renderRoundText();
             setTimeout(function () {
-                random();
+                randomNumGenerator();
             }, 2000);
         } else {
             console.log('Turn on the power');
         }
-    }
+    };
+
+    function strictMode() {
+        if (!strict) {
+            strict = true;
+        } else {
+            strict = false;
+        }
+    };
+
+
     $('.start-btn').on('click', startGame);
+    $('.strict-btn').on('click', strictMode);
 
     function buttonClick() { //Clean up this up/ down listner!
         // if (gameStart) {
-            $('.color-button').mousedown(function (e) {
-                $(this).toggleClass('clicked');
-                const thisTone = this.dataset.color;
-                colors[thisTone].tone.play();
-                playerResponse.push(colors[thisTone]);
-                // console.log('colors[thisTone}', colors[thisTone]);
-                // console.log('********E: ', e);
-                // console.log('*******This: ', this);
-                // console.log('********', e.target);
-                // console.log("playerResponse Arr: ", playerResponse);
-                check2(playerResponse, simonCall);
-            }).mouseup(function () {
-                $(this).toggleClass('clicked');
-            });
+        $('.color-button').mousedown(function (e) {
+            $(this).toggleClass('clicked');
+            const thisTone = this.dataset.color;
+            colors[thisTone].tone.play();
+            playerResponse.push(colors[thisTone]);
+            // console.log('colors[thisTone}', colors[thisTone]);
+            // console.log('********E: ', e);
+            // console.log('*******This: ', this);
+            // console.log('********', e.target);
+            // console.log("playerResponse Arr: ", playerResponse);
+            checkPlayerInput(playerResponse, simonCall);
+            console.log('STRICT', strict);
+        }).mouseup(function () {
+            $(this).toggleClass('clicked');
+        });
         // } else {
         //     console.log('Start the game!');
         // }
@@ -143,18 +171,19 @@ $(document).ready(function () {
 
     var randomNumArr = [];
 
-    function random() {
+    function randomNumGenerator() {
         const min = Math.ceil(0);
         const max = Math.floor(3);
         let randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
+
         randomNumArr.push(randomNum);
         simonCall.push(colorArr[randomNum]);
-        playArr(simonCall);
+        playSoundArr(simonCall);
         console.log(randomNumArr);
         console.log('simonCall Arr: ', simonCall)
     };
 
-    function playArr(arr) {
+    function playSoundArr(arr) {
         const time = [0, 1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000]; //getting stuck maxing out of iterations thus, doubling up on playing notes
         const time2 = [500, 1500, 2500, 3500, 4500, 5500, 6500, 7500, 8500, 9500];
 
@@ -163,7 +192,6 @@ $(document).ready(function () {
                 function () {
                     toggleColor(a.$el);
                     arr[i].tone.play();
-                    //console.log('Go!')
                 },
                 time[i]);
             setTimeout(function () {
@@ -174,25 +202,25 @@ $(document).ready(function () {
 
     function nextRound() {
         if (round === 4) {
+            alert('You Win!');
             console.log('YOU WIN!');
+            initializeGame();
         } else {
             round += 1;
             playerResponse = [];
             console.log('nextRound: ', round, playerResponse);
-            random();
+            randomNumGenerator();
             renderRoundText();
         }
     }
 
-    function renderRoundText() {
-        $('.count').text(round);
-    }
 
-    function check2(player, simon) {
-        var playerArr = player;
-        var simonArr = simon;
+    function checkPlayerInput(player, simon) {
+        let playerArr = player;
+        let simonArr = simon;
         console.log(playerArr[turnCount].name);
         console.log(simonArr[turnCount].name);
+
         if (playerArr[turnCount].name === simonArr[turnCount].name && turnCount < round) {
             return true, turnCount += 1;
         } else if (playerArr[turnCount].name === simonArr[turnCount].name && turnCount === round) {
@@ -201,8 +229,21 @@ $(document).ready(function () {
                     nextRound()
                 }, 2000);
             console.log('Next Round!');
+        } else if (playerArr[turnCount].name !== simonArr[turnCount].name && strict) {
+            return console.log('nope!'), audio.errorSound.play(),
+                setTimeout(function () {
+                    initializeGame();
+                    toggleOffBtnLights();
+                    renderRoundText();
+                    gameStart = false;
+                }, 2000);;
         } else {
-            return false, console.log('nope!');
+            return console.log('nope!'), audio.errorSound.play(),
+                setTimeout(function () {
+                    turnCount = 0;
+                    playerResponse = [];
+                    playSoundArr(simonCall)
+                }, 2000);;
         }
     }
 
