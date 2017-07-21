@@ -165,11 +165,7 @@ $(document).ready(function () {
             const thisTone = this.dataset.color;
             colors[thisTone].tone.play();
             playerResponse.push(colors[thisTone]);
-            // console.log('colors[thisTone}', colors[thisTone]);
-            // console.log('********E: ', e);
-            // console.log('*******This: ', this);
-            // console.log('********', e.target);
-            // console.log("playerResponse Arr: ", playerResponse);
+
             checkPlayerInput(playerResponse, simonCall);
             console.log('STRICT', strict);
         }).mouseup(function () {

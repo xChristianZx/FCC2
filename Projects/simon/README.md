@@ -16,3 +16,6 @@
 * [X] User Story: I can play in strict mode where if I get a button press wrong, it notifies me that I have done so, and the game restarts at a new random series of button presses.
 
 * [X] User Story: I can win the game by getting a series of 20 steps correct. I am notified of my victory, then the game starts over.
+
+- Sound effects provided by FreeCodeCamp
+- "Wrong answer" Sound Effect courtesy of http://www.orangefreesounds.com/.
