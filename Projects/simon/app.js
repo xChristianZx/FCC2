@@ -1,4 +1,4 @@
-'use strict'
+"use strict"
 
 $(document).ready(function () {
     //Audio Import
@@ -193,8 +193,8 @@ $(document).ready(function () {
     };
 
     function playSoundArr(arr) {
-        const time = [0, 1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000]; //getting stuck maxing out of iterations thus, doubling up on playing notes
-        const time2 = [500, 1500, 2500, 3500, 4500, 5500, 6500, 7500, 8500, 9500];
+        // const time = [0, 1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000];
+        // const time2 = [500, 1500, 2500, 3500, 4500, 5500, 6500, 7500, 8500, 9500];
 
         arr.forEach(function (a, i) {
             setTimeout(
@@ -202,10 +202,10 @@ $(document).ready(function () {
                     toggleColor(a.$el);
                     arr[i].tone.play();
                 },
-                time[i]);
+                (i*500));
             setTimeout(function () {
                 toggleColor(a.$el);
-            }, time2[i])
+            }, ((i*500)+750))
         });
     };
 
