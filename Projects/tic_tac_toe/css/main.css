@@ -1,6 +1,6 @@
 html,
 body {
-  background-color: #D5C9DF;
+  background-color: #d5c9df;
   height: 100%;
   width: 100%;
   display: flex;
@@ -35,8 +35,8 @@ body {
   width: 500px;
   height: 500px;
   display: grid;
-  grid-template-columns: 1fr .1fr 1fr .1fr 1fr;
-  grid-template-rows: 1fr .1fr 1fr .1fr 1fr;
+  grid-template-columns: 1fr 0.1fr 1fr 0.1fr 1fr;
+  grid-template-rows: 1fr 0.1fr 1fr 0.1fr 1fr;
   grid-gap: 0 0;
   align-items: stretch; }
   .main-wrapper div {
